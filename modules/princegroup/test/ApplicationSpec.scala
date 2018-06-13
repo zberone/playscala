@@ -1,9 +1,7 @@
-import org.specs2.mutable._
-import org.specs2.runner._
-import org.junit.runner._
-import play.api.test._
-import play.api.inject.guice.GuiceApplicationBuilder
 import java.io.File
+
+import play.api.inject.guice.GuiceApplicationBuilder
+import play.api.test._
 
 /**
  * Add your spec here.
@@ -12,7 +10,7 @@ import java.io.File
  */
 class ApplicationSpec extends PlaySpecification {
 
-  val app = new GuiceApplicationBuilder().in(new File("./modules/web/")).build
+  val app = new GuiceApplicationBuilder().in(new File("./modules/princegroup/")).build
 
   "Web Module" should {
 
@@ -25,7 +23,7 @@ class ApplicationSpec extends PlaySpecification {
 
       status(index) must equalTo(OK)
       contentType(index) must beSome.which(_ == "text/html")
-      contentAsString(index) must contain("WEB template")
+      contentAsString(index) must contain("PrinceGroup template")
     }
   }
 }

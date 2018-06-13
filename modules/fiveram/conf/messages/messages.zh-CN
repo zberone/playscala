@@ -1,0 +1,13 @@
+# Messages
+
+computers.list.head=找到{0,choice,0#台电脑|1#一台电脑|1<{0,number,integer} 台电脑}
+computers.list.name=电脑名称
+computers.list.introduced=生产日期
+computers.list.discontinued=到期日期
+computers.list.company=品牌公司
+computers.list.prev=前一页
+computers.list.next=后一页
+computers.list.create=添加新电脑
+computers.list.filter=输入电脑名称。。。
+computers.list.index=Play首页
+computers.list.title=电脑清单

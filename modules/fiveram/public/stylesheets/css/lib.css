@@ -1,0 +1,210 @@
+﻿/* 公共 ----------------------------------------------------- */
+body{font-family:"微软雅黑","Microsoft Yahei";min-width: 1200px;
+    overflow-x: hidden;}
+.wp{margin:0 auto;width: 1000px;}
+
+a{color:#c61529;}
+h1,h2,h3,h4,h5{font-weight: normal;}
+*{-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;   
+box-sizing: border-box;}
+
+
+@font-face {
+ font-family: "fzl";
+ src:url(../font/FZLTXHK.TTF);
+}
+/* 通用模块 -------------------------------------------------- */
+/* 布局 */
+.wp{ margin-left:-436px; }
+      
+/*******************************
+    -------[=头部]-------
+********************************/
+#bd{position: relative;background-color: #e5e5e3 }
+#hd.hd1{position: relative;}
+#hd{position: absolute;left:50%;top:0;z-index: 99;
+    padding-bottom: 13px;width: 100%;height:100px;}
+.logo{float: left;margin:40px 0 0 25px;}
+
+.hd-right{margin-right: 24px;}
+.hd-right .lan {float: right;margin:38px 70px;}
+.hd-right .lan li{line-height: 27px;}
+.hd-right .lan li a{display: block;font-size: 18px;
+    color:#7c7c7c;}
+.hd-right .lan li a:hover,
+.hd-right .lan li.on a{color:#c61529;}
+.hd-right .hd-kefu{float:right;margin:10px 1px ;}
+
+.hd-right .nav {float:left;margin:64px 0 0 25px;}
+.nav li{position: relative;float: left;margin-left: 30px;}
+.nav li .a1{position: relative;z-index: 9;color:#898989;
+    display: block;padding:0 1px 2px;font-size: 20px;overflow: hidden;}
+.nav li .a1:hover{color:#34bdfe;}
+.nav li .a1:after{content:'';position: absolute;left:0;bottom:0;
+    margin-left: -100%;width: 100%;height: 2px;background:#ffc259;
+    -o-transition:.7s;
+    -ms-transition:.7s;
+    -moz-transition:.7s;
+    -webkit-transition:.7s;
+    transition:.7s;}
+.nav li:hover .a1:after,
+.nav li.on .a1:after{margin-left: 0;}
+
+.nav li dl{position: absolute;left:0;top:33px;display: none;padding-top: 23px;
+    width: 100%;background:url(/assets/fiveram/images/l-bgf.png);text-align: center;}
+.nav li dd{padding:14px 0;border-top: 1px solid #ced7e2;}
+.nav li dd.bt0{border-top: 0;}
+.nav li dd img{width: 61px;height: 61px;}
+.nav li dd a:hover img{opacity: .8;} 
+
+
+/* 公用ban */
+.g-screen{position: absolute;}
+
+
+/* 底部 */
+
+#fd{padding: 48px 0;text-align: center;color:#fff;
+    background:#c61529 url(/assets/fiveram/images/fd-bg.png) no-repeat center 33%;}
+#fd h3{padding-bottom:33px;font-size: 18px;}
+
+
+/* 落叶 */
+#g-leaves.g-leaves{top:-280px;}
+#g-leaves.g-leaves2{top:-70px;}
+#g-leaves.g-leaves3{top:-100px;}
+#g-leaves{position: relative;}
+#g-leaves div{position: absolute;right:-20px;top:-350px;
+    width: 437px;height: 324px;}
+/*#g-leaves .div2{top:auto;bottom:0;}*/
+#g-leaves img{position: absolute;
+    -webkit-animation: g-leaves 5s infinite alternate;
+    animation: g-leaves 5s infinite alternate;}
+#g-leaves .img1{right:0;top:0;
+    -webkit-animation-delay:.2s;
+    animation-delay:.2s;}
+#g-leaves .img2{right:89px;top:18px;
+    -webkit-animation-delay:.4s;
+    animation-delay:.4s;}
+#g-leaves .img3{right:35px;top:63px;
+    -webkit-animation-delay:1s;
+    animation-delay:1s;}
+#g-leaves .img4{right:0;top:135px;
+    -webkit-animation-delay:.6s;
+    animation-delay:.6s;}
+#g-leaves .img5{right:142px;top:130px;
+    -webkit-animation-delay:.2s;
+    animation-delay:.2s;}
+#g-leaves .img6{right:218px;top:103px;
+    -webkit-animation-delay:.4s;
+    animation-delay:.4s;}
+#g-leaves .img7{right:213px;top:214px;
+    -webkit-animation-delay:1.2s;
+    animation-delay:1.2s;}
+
+@-webkit-keyframes g-leaves {
+    0%{
+        transform: translateX(0px) translateY(0px);
+        -webkit-transform:translateX(0px) translateY(0px);
+    }
+    50%{
+        transform: translateX(-20px) translateY(25px);
+        -webkit-transform:translateX(-20px) translateY(25px);
+    }
+    100%{
+        transform: translateX(0px) translateY(0px);
+        -webkit-transform:translateX(0px) translateY(0px);
+    }
+}
+
+@keyframes g-leaves {
+    0%{
+        transform: translateX(0px) translateY(0px);
+        -webkit-transform:translateX(0px) translateY(0px);
+    }
+    50%{
+        transform: translateX(-20px) translateY(25px);
+        -webkit-transform:translateX(-20px) translateY(25px);
+    }
+    100%{
+        transform: translateX(0px) translateY(0px);
+        -webkit-transform:translateX(0px) translateY(0px);
+    }
+}
+
+/* 右侧 */
+#g-right{position: fixed;right:0;top:50%;z-index: 99;margin: -200px -209px 0 0;
+    width: 190px;background:#6b6d79;
+    -o-transition:.6s;
+    -ms-transition:.6s;
+    -moz-transition:.6s;
+    -webkit-transition:.6s;
+    transition:.6s;}
+#g-right.ok{margin-right: 0;z-index: 999;}
+#g-right:after,
+.g-right-menu:after{content:'';position: absolute;left:-19px;
+    top:50%;margin-top: -19px;width: 19px;height: 38px;
+    background: url(/assets/fiveram/images/a3.png) no-repeat left top;}
+#g-right li{border-top: 1px solid #7d7f88;
+    border-bottom: 1px solid #585a66;
+    overflow: hidden;}
+#g-right .li5{border-bottom: 0;}
+#g-right li a{display: block;padding-left: 55px;color:#fff;font-size: 14px;
+    height: 58px;line-height: 58px;overflow: hidden;
+    background: url(/assets/fiveram/images/l-r1.jpg) no-repeat 10px center;}
+#g-right .li2 a{background: url(/assets/fiveram/images/l-r3.jpg) no-repeat 15px center;}
+#g-right .li3 a{background: url(/assets/fiveram/images/l-r4.jpg) no-repeat 15px center;}
+#g-right .li4 a{background: url(/assets/fiveram/images/l-r6.jpg) no-repeat 18px center;}
+#g-right li .a2{padding-top: 10px;line-height: 18px;}
+#g-right li img{display: block;margin:17px auto;width: 151px;height: 177px;}
+
+
+.g-right-menu{position: fixed;right:0;top:50%;z-index: 99;
+    margin-top:-180px;width: 50px;background:#6b6d79;}
+.g-right-menu li a{display: block;height: 60px;
+    border-top: 1px solid #7d7f88;
+    border-bottom: 1px solid #585a66;
+    background: url(/assets/fiveram/images/l-r1.jpg) no-repeat center;}
+.g-right-menu .li1 a{border-top: 0;}
+.g-right-menu .li2 a{background-image: url(/assets/fiveram/images/l-r2.jpg);}
+.g-right-menu .li3 a{background-image: url(/assets/fiveram/images/l-r3.jpg);}
+.g-right-menu .li4 a{background-image: url(/assets/fiveram/images/l-r4.jpg);}
+.g-right-menu .li5 a{background-image: url(/assets/fiveram/images/l-r5.jpg);}
+.g-right-menu .li6 a{border-bottom: 0;
+    background-image: url(/assets/fiveram/images/l-r6.jpg);}
+
+
+/* 2016/4/27 */
+.development .img{position: relative;overflow: hidden;}
+#g-leaves2{position: absolute;bottom:0;left:0;
+    width: 378px;height: 216px;}
+#g-leaves2 img{position: absolute;
+    -webkit-animation: g-leaves 8s infinite alternate;
+    animation: g-leaves 8s infinite alternate;}
+#g-leaves2 .img1{top:0;left:0;
+    -webkit-animation-delay:.2s;
+    animation-delay:.2s;}
+#g-leaves2 .img2{top:15px;left:91px;
+    -webkit-animation-delay:.4s;
+    animation-delay:.4s;}
+#g-leaves2 .img3{top:55px;left:44px;z-index: 9;
+    -webkit-animation-delay:1s;
+    animation-delay:1s;}
+#g-leaves2 .img4{top:115px;left:1px;
+    -webkit-animation-delay:.6s;
+    animation-delay:.6s;}
+#g-leaves2 .img5{top:113px;left:138px;
+    -webkit-animation-delay:.2s;
+    animation-delay:.2s;}
+#g-leaves2 .img6{top:89px;left:204px;
+    -webkit-animation-delay:.4s;
+    animation-delay:.4s;}
+#g-leaves2 .img7{top:187px;left:218px;
+    -webkit-animation-delay:1.2s;
+    animation-delay:1.2s;}
+/*2017-05-25*/
+.newslink{
+	font-size:12px;border-bottom:1px solid #ccc;height:40px; 
+	line-height:40px; 
+	}

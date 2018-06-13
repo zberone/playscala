@@ -1,0 +1,30 @@
+# # Fiveram Routes
+# Home page
+GET     /                           controllers.fiveram.FiveramController.index()
+#
+GET     /index                      controllers.fiveram.FiveramController.index
+GET     /about                      controllers.fiveram.FiveramController.about
+GET		/contact					controllers.fiveram.FiveramController.contact
+GET     /brand                      controllers.fiveram.FiveramController.brand
+GET     /careers                      controllers.fiveram.FiveramController.careers
+GET     /redumbrella                  controllers.fiveram.FiveramController.redumbrella
+GET     /assets/*file               controllers.fiveram.Assets.at(path="/public/lib/fiveram", file)
+
+GET     /lang/$lang<(en|es|zh-CN)>		controllers.fiveram.FiveramController.selectLang(lang: String)
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /public/*file					controllers.fiveram.Assets.public(path="/public", file: Asset)
+GET     /lib/*file						controllers.fiveram.Assets.lib(path="/public/lib", file: Asset)
+GET     /css/*file						controllers.fiveram.Assets.css(path="/public/stylesheets", file: Asset)
+GET     /js/*file						controllers.fiveram.Assets.js(path="/public/javascripts", file: Asset)
+GET     /img/*file						controllers.fiveram.Assets.img(path="/public/images", file: Asset)
+GET     /common/css/*file			    controllers.fiveram.Assets.commonCss(path="/public/lib/common/stylesheets", file: Asset)
+GET     /common/js/*file			    controllers.fiveram.Assets.commonJs(path="/public/lib/common/javascripts", file: Asset)
+GET     /common/img/*file		    	controllers.fiveram.Assets.commonImg(path="/public/lib/common/images", file: Asset)
+
+GET     /rsc/*file						controllers.fiveram.SharedResources.rsc(file: String)
+
+
+->  / common.Routes

@@ -1,0 +1,51 @@
+
+@defining(play.core.PlayVersion.current) { version =>
+<!-- 头部 -->
+<div id="hd" class="wow fadeInDown" data-wow-duration="10">
+    <div class="wp">
+        <!-- logo -->
+        <div class="logo">
+            <ul><a href="@routes.FiveramController.index()"><img src="@routes.Assets.at("/fiveram/images/logo.png")" alt="" border="0"></a>  </ul> </div>
+        <!-- logo -->
+
+
+
+        <div class="hd-right">
+
+            <div class="nav">
+                <ul>
+                    <li><a href="@routes.FiveramController.about()" class="a1">关于五羊</a></li>
+                    <li>
+                        <a href="@fiveram.routes.FiveramController.brand()" class="a1">旗下品牌</a>
+                        <dl>
+                            <dd class="bt0"><a href="http://fiverambaby.com.cn" target="_blank"><img src="@routes.Assets.at("/fiveram/images/brank1.png")" alt=""></a></dd>
+                            <dd><a href="http://www.bibigroup.com" target="_blank"><img src="@routes.Assets.at("/fiveram/images/brank2-1.png")" alt=""></a></dd>
+                        </dl>
+                    </li>
+                    <li><a href="@routes.FiveramController.careers()" class="a1">职业发展</a></li>
+                    <li><a href="@routes.FiveramController.contact()" class="a1">联系我们</a></li>
+                    <li><a href="@routes.FiveramController.redumbrella()" class="a1">小红伞</a></li>
+
+                </ul>
+            </div>
+
+            <div class="lan">
+                <ul>
+                    <li><a href="#">网站首页</a></li>
+                    @if( messages.lang.code  == "zh-CN") {
+                    <li class="on"><a href="@routes.FiveramController.selectLang("en")">英文</a></li>
+                    } else {
+                    <li class="on"><a href="@routes.FiveramController.selectLang("zh-CN")">Chinese</a></li>
+                    }
+                </ul>
+            </div>
+            <div class="c"></div>
+
+
+
+        </div>
+        <div class="c"></div>
+    </div>
+</div>
+<!-- 头部 -->
+}

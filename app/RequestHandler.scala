@@ -9,7 +9,8 @@ class VirtualHostRequestHandler @Inject() (
   filters: HttpFilters,
   webRouter: web.Routes,
   adminRouter: admin.Routes,
-  princegroupRouter: princegroup.Routes
+  princegroupRouter: princegroup.Routes,
+  fiveramRouter: fiveram.Routes
 ) extends DefaultHttpRequestHandler(
   webRouter, errorHandler, configuration, filters
 ) {
@@ -26,6 +27,7 @@ class VirtualHostRequestHandler @Inject() (
   override def routeRequest(request: RequestHeader) = getSubdomain(request) match {
     case "web.example.com" => webRouter.routes.lift(rewriteAssets("web", request))
     case "princegroup.example.com" => princegroupRouter.routes.lift(rewriteAssets("princegroup", request))
+    case "fiveram.example.com" => princegroupRouter.routes.lift(rewriteAssets("fiveram", request))
     case _ => adminRouter.routes.lift(rewriteAssets("admin", request))
   }
 

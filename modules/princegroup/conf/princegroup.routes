@@ -1,0 +1,25 @@
+# PRINCEGROUP Routes
+# This file defines princegroup application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /							controllers.princegroup.Application.index
+
+GET     /lang/$lang<(en|es|zh-CN)>		controllers.princegroup.Application.selectLang(lang: String)
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /public/*file					controllers.princegroup.Assets.public(path="/public", file: Asset)
+GET     /lib/*file						controllers.princegroup.Assets.lib(path="/public/lib", file: Asset)
+GET     /css/*file						controllers.princegroup.Assets.css(path="/public/stylesheets", file: Asset)
+GET     /js/*file							controllers.princegroup.Assets.js(path="/public/javascripts", file: Asset)
+GET     /img/*file						controllers.princegroup.Assets.img(path="/public/images", file: Asset)
+GET     /common/css/*file			controllers.princegroup.Assets.commonCss(path="/public/lib/common/stylesheets", file: Asset)
+GET     /common/js/*file			controllers.princegroup.Assets.commonJs(path="/public/lib/common/javascripts", file: Asset)
+GET     /common/img/*file			controllers.princegroup.Assets.commonImg(path="/public/lib/common/images", file: Asset)
+
+GET     /rsc/*file						controllers.princegroup.SharedResources.rsc(file: String)
+
+
+->  / common.Routes

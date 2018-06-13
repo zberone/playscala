@@ -1,0 +1,23 @@
+
+
+################################################################################################
+# COMMON
+
+reload=重新加载
+button=Launch demo modal using CoffeeScript
+
+computers=电脑列表
+computer.name=名称
+computer.introduced=发行日期
+computer.discontinued=停产日期
+computer.company=制造公司
+
+modal.title=Modal title
+modal.text=This is a modal
+modal.close=关闭
+
+
+error.unknown.title=Oops, an error occurred
+error.unknown.text=This exception has been logged with id <strong>{0}</strong>.
+error.notfound.title=Handler Not Found
+error.notfound.text=For request ''{0}''

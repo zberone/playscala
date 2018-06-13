@@ -1,0 +1,645 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<title>
+			Multidomain Seed for Play Framework 2.5
+		</title>
+	</head>
+	<body>
+		<div>
+			<h2>Introduction</h2>
+
+			<p>
+				Let's suppose you want to develop a whole project which has two different
+				services: the typical public webpage and the private admin one. You also want
+				a specific subdomain for the admin webpage, so we will have:
+			</p>
+
+			<ul>
+				<li><code>admin.myweb.com</code>: private administration webpage.</li>
+				<li><code>www.myweb.com</code> or <code>myweb.com</code>: public webpage.</li>
+			</ul>
+
+			<p>
+				And let's also suppose you prefer to have these services isolated in your
+				production server. So you would be able to manage them separately (with different
+				PIDs, different ports, different resources…).
+			</p>
+
+			<p>Then, we have the following objectives:</p>
+
+			<ul>
+				<li>
+					Development should be simple. <code>activator run</code> should be enough
+					to run all services at the same time.
+				</li>
+				<li>Common code, dependencies and modules should be easily shared.</li>
+				<li>
+					We should be able to compile, test and run each service separately in
+					development and production.
+				</li>
+				<li>We should distribute each service separately.</li>
+				<li>It should be a template ready to use with the following features:
+					<ul>
+						<li><a href="http://www.webjars.org" target="_blank">Webjars</a>.</li>
+						<li><a href="http://coffeescript.org" target="_blank">CoffeeScript</a> and <a href="http://lesscss.org" target="_blank">LESS</a> Assets.</li>
+						<li><a href="http://www.playframework.com/documentation/2.5.x/Assets" target="_blank">Assets with RequireJS, Digest, Etag, Gzip, Fingerprint</a>.</li>
+					</ul>
+				</li>
+				<li>It shoud explain:
+					<ul>
+						<li>
+							How to share every common code to avoid duplications (models, controllers,
+							views, CoffeeScript, LESS, ...).
+						</li>
+						<li>How to use it for development, test and production.</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<h2>Multiproject</h2>
+			
+			<p>This template has 3 subprojects:</p>
+
+			<ul>
+				<li>
+					<a href="#code/modules/web" class="shortcut">web</a>:
+					will contain all the specific code for the public webpage service.
+				</li>
+				<li>
+					<a href="#code/modules/admin" class="shortcut">admin</a>:
+					will contain all the specific code for the private administration webpage service.
+				</li>
+				<li>
+					<a href="#code/modules/common" class="shortcut">common</a>:
+					will contain all the common code shared between the other subprojects.
+				</li>
+			</ul>
+
+			<p>
+				Obviously, this is a template, so you can easily change its names or add more modules.
+				Once you understand how it works you will find it easy to modify.
+			</p>
+
+			<p>
+				You can see the basic structure of the whole project
+			</p>
+
+			<p>
+				Let's try to explain briefly how it is configured. For running the whole project we
+				have the following configuration files:
+			</p>
+
+			<ul>
+				<li>
+					<a href="#code/build.sbt" class="shortcut">build.sbt</a>:
+					configures root project and declares every subproject.
+				</li>
+				<li>
+					<a href="#code/conf/root-dev.conf" class="shortcut">conf/root-dev.conf</a> <em>(used when whole project is running)</em>:
+					the default one. In the next section it is explained in detail.
+				</li>
+				<li>
+					<a href="#code/conf/routes" class="shortcut">conf/routes</a> <em>(used when whole project is running)</em>:
+					routes file for the whole project. It simply imports the routes file of every subproject.
+				</li>
+				<li>
+					<a href="#code/app/RequestHandler.scala" class="shortcut">app/RequestHandler.scala</a> <em>(used when whole project is running)</em>:
+					the RequestHandler object for the whole project. It determines the subdomain for each
+					request (admin or web) and delegates its behaviour to the corresponding subproject.
+				</li>
+				<li>
+					<a href="#code/app/ErrorHandler.scala" class="shortcut">app/ErrorHandler.scala</a> <em>(used when whole project is running)</em>:
+					the ErrorHandler object for the whole project. It determines the subdomain for each
+					request (admin or web) and delegates its behaviour to the corresponding subproject.
+				</li>
+			</ul>
+
+			<p>And for running each subproject independently:</p>
+
+			<ul>
+				<li>
+					<a href="#code/modules/admin/build.sbt" class="shortcut">modules/[subproject]/build.sbt</a>:
+					configures the [subproject].
+				</li>
+				<li>
+					<a href="#code/modules/admin/conf/admin-dev.conf" class="shortcut">modules/[subproject]/conf/[subproject]-dev.conf</a>
+					<em>(used when only this subproject is running)</em>: the default one, it declares the routes file for the subproject
+					while running or testing only this subproject.
+				</li>
+				<li>
+					<a href="#code/modules/admin/conf/admin-prod.conf" class="shortcut">modules/[subproject]/conf/[subproject]-prod.conf</a>
+					<em>(used when only this subproject is running)</em>: it declares the routes file for the subproject
+					while distributing only this subproject.
+				</li>
+				<li>
+					<a href="#code/modules/admin/conf/admin.routes" class="shortcut">modules/[subproject]/conf/[subproject].routes</a>
+					<em>(used when only this subproject is running)</em>: routes file for this subproject.
+				</li>
+				<li>
+					<a href="#code/modules/admin/app/utils/ErrorHandler.scala" class="shortcut">modules/[subproject]/app/utils/ErrorHandler.scala</a>
+					<em>(used when only this subproject is running)</em>: the ErrorHandler object for this subproject.
+				</li>
+			</ul>
+
+			<p>The common code for every  <code>build.sbt</code> file is defined at:</p>
+			
+			<ul>
+				<li>
+					<a href="#code/project/Common.scala" class="shortcut">project/Common.scala</a>:
+					contains all the shared common variables and code for sbt files.
+				</li>
+			</ul>
+
+			<p>And the rest of relevant folders and files are:</p>
+
+			<ul>
+				<li>
+					<a href="#code/modules/admin/app/assets/javascripts" class="shortcut">modules/[subproject]/app/assets/javascripts/</a>:
+					folder for CoffeeScript files of this subproject.
+				</li>
+				<li>
+					<a href="#code/modules/admin/app/assets/stylesheets" class="shortcut">modules/[subproject]/app/assets/stylesheets/</a>:
+					folder for LESS files of this subproject.
+				</li>
+				<li>
+					<a href="#code/modules/admin/app/controllers" class="shortcut">modules/[subproject]/app/controllers/</a>:
+					folder for the controllers of this subproject.
+				</li>
+				<li>
+					<a href="#code/modules/admin/app/controllers/Assets.scala" class="shortcut">modules/[subproject]/app/controllers/Assets.scala</a>:
+					it is necessary to implement an <code>object Assets extends controllers.AssetsBuilder</code> for every subproject.
+				</li>
+				<li>
+					<a href="#code/modules/admin/app/views/admin" class="shortcut">modules/[subproject]/app/views/[subproject]/</a>:
+					folder for the views of this subproject.
+				</li>
+				<li>
+					<a href="#code/modules/admin/public" class="shortcut">modules/[subproject]/public/</a>:
+					folder for every public file of this subproject.
+				</li>
+				<li>
+					<a href="#code/modules/admin/test" class="shortcut">modules/[subproject]/test/</a>:
+					folder for every test file for this subproject.
+				</li>
+			</ul>
+
+			<p>
+				Please check the <em>Splitting the route file</em> section within the documentation page about
+				<a href="http://www.playframework.com/documentation/2.5.x/SBTSubProjects" target="_blank">SBT Sub-projects</a>.
+			</p>
+		</div>
+		<div>
+			<h2>Configuration files</h2>
+			
+			<p>
+				As we want to run or test the whole project and also run, test or dist <em>admin</em> and <em>web</em> subprojects,
+				we have several configuration files. Each one has its own particular purpose:
+			</p>
+			
+			<ul>
+				<li>
+					<a href="#code/conf/root-dev.conf" class="shortcut">conf/root-dev.conf</a>:
+					the configuration file that is called by default when the whole project is running.
+					It simply includes the <em>shared.dev.conf</em> file.
+				</li>
+				<li>
+					<a href="#code/conf/shared.dev.conf" class="shortcut">conf/shared.dev.conf</a>:
+					declares all the development configuration shared for the whole project and every subproject.
+				</li>
+
+				<li>
+					<a href="#code/conf/shared.prod.conf" class="shortcut">conf/shared.prod.conf</a>:
+					includes the <em>shared.dev.conf</em> file and overrides every configuration that is specific for
+					production and it is shared for the whole project and every subproject.
+				</li>
+			</ul>
+			
+			<ul>
+				<li>
+					<a href="#code/modules/admin/conf/admin.conf" class="shortcut">modules/[subproject]/conf/[subproject].conf</a>:
+					declares the specific configuration for this subproject for development or production.
+					It must declare the route file for this subproject.
+				</li>
+				<li>
+					<a href="#code/modules/admin/conf/admin-dev.conf" class="shortcut">modules/[subproject]/conf/[subproject]-dev.conf</a>:
+					the configuration file that is called by default when the [subproject] is running.
+					It simply includes the <em>shared.dev.conf</em> and <em>[subproject].conf</em> files.
+				</li>
+				<li>
+					<a href="#code/modules/admin/conf/admin-prod.conf" class="shortcut">modules/[subproject]/conf/[subproject]-prod.conf</a>:
+					declares the specific configuration for this subproject for production. It includes the
+					<em>shared.prod.conf</em> and <em>[subproject].conf</em> files.
+			</ul>
+			
+			<p>
+				As you can see, we have some shared configuration files: <a href="#code/conf/shared.dev.conf" class="shortcut">shared.dev.conf</a>
+				and <a href="#code/conf/shared.prod.conf" class="shortcut">shared.prod.conf</a>. And we need them for every project (the root one and
+				the subprojects). Both files shoud be replicated within each <code>conf</code> directory for every subproject. But there is an easy
+				way to avoid code replication and minimize errors, and it's defining a new
+				<a href="http://www.scala-sbt.org/release/docs/Howto-Generating-Files.html#Generate+resources" target="_blank">resourceGenerator</a>
+				within <a href="#code/project/Common.scala" class="shortcut">Common.scala</a>. Then, each time the code is compiled, every
+				<code>shared.*.conf</code> file will be replicated within the corresponding path. Note these files will <strong>only</strong> be
+				generated within the <code>target</code> file.
+			</p>
+			
+			<p>
+				It has been added a key called <em>this.file</em> in many of the configuration files and it is shown in the
+				index web page when you run it. Please, play with it to see how it is overridden by each configuration
+				file depending the project and mode (dev or prod) you are running.
+			</p>
+			
+			<p>
+				The corresponding configuration file is correctly taken for each case thanks to the settings lines in
+				<a href="#code/project/Common.scala" class="shortcut">Common.scala</a>:
+			</p>
+			
+<pre>javaOptions += s"-Dconfig.resource=$module-dev.conf"</pre>
+			
+			<p>
+				<em>Tip:</em> as files <em>shared.dev.conf</em> and <em>shared.prod.conf</em> for every subproject are
+				the same as the general ones, you can use <em>aliases</em> or <em>symbolic links</em> for them in order to
+				avoid to maintain all of them.
+			</p>
+		</div>
+		<div>
+			<h2>Assets: RequireJS, Digest, Etag, Gzip, Fingerprint</h2>
+	
+			<p>
+				To configure all of these features, for each service (<code>web</code> and <code>admin</code>)
+				we have the <a href="#code/project/Common.scala" class="shortcut">following</a>:
+			</p>
+
+<pre>pipelineStages := Seq(rjs, digest, gzip)
+RjsKeys.mainModule := s"main-$module"</pre>
+
+			<p>
+				The first line declares the asset pipeline. The second one establishes the corresponding
+				<em>RequireJS</em> main config file to each module.
+			</p>
+
+			<p>
+				Then you can put the common RequireJS modules in the subproject
+				<a href="#code/modules/common" class="shortcut">common</a>, within the folder
+				<a href="#code/modules/common/app/assets/javascripts/common" class="shortcut">modules/common/app/assets/javascripts/common/</a>.
+				And the specific code for each subproject will be added within its corresponding folder
+				<a href="#code/modules/admin/app/assets/javascripts/" class="shortcut">modules/[subproject]/app/assets/javascripts/</a>.
+				Take care with possible namespace problems while running the whole project.
+				In the example, the subproject <em>admin</em> has other <em>RJS module</em> within subfolder
+				<a href="#code/modules/admin/app/assets/javascripts/admin" class="shortcut">admin</a>.
+			</p>
+	
+			<p>
+				The common Assets are packaged as Webjars for the other subprojects that depend on it,
+				so you must indicate the corresponding <em>RequireJS path</em> to the common lib in the
+				<a href="#code/modules/admin/app/assets/javascripts/main-admin.coffee" class="shortcut">RJS config file</a> as:
+			</p>
+	
+<pre>require.config
+  paths:
+    common: "../lib/common/javascripts"
+    jquery: "../lib/jquery/jquery"
+    ...</pre>
+
+			<p>Now we just simply need to declare the RequireJS as:</p>
+
+<pre>&lt;script data-main="@routes.Assets.versioned("javascripts/main-web.js")" src="@routes.Assets.versioned("lib/requirejs/require.js")" type="text/javascript"&gt;&lt;/script&gt;</pre>
+	
+			<p>
+				For more information, go to the documentation page about
+				<a href="http://www.playframework.com/documentation/2.5.x/Assets" target="_blank">Assets</a>,
+				the tutorial <code>play-2.3-highlights</code> in Activator UI, or the website of
+				<a href="http://requirejs.org" target="_blank">RequireJS</a>.
+			</p>
+			
+			<h3>Custom AssetsBuilder</h3>
+			
+			<p>In order to avoid code like this:</p>
+			
+<pre>href="@routes.Assets.versioned("images/favicon.png")"
+href="@routes.Assets.versioned("stylesheets/main.css")">
+data-main="@routes.Assets.versioned("javascripts/main-web.js")"
+src="@routes.Assets.versioned("lib/requirejs/require.js")"
+src="@routes.Assets.versioned("lib/common/images/logo.png")"</pre>
+
+			<p>because it can be very tedious to remember the specific path for every resource depending of its type or if it's from the common subproject or not, I prefer using this syntax:</p>
+			
+<pre>href="@routes.Assets.img("favicon.png")"
+href="@routes.Assets.css("main.css")">
+data-main="@routes.Assets.js("main-web.js")"
+src="@routes.Assets.lib("requirejs/require.js")"
+src="@routes.Assets.commonImg("logo.png")"</pre>
+
+			<p>To get that we only need to define a custom <code>AssetsBuilder</code> class. You can see it in <a href="#code/modules/common/app/controllers/Assets.scala" class="shortcut">modules/common/app/controllers/Assets.scala</a>.</p>
+			
+			<p>Add a simple <code>Assets</code> class within the <code>controllers</code> folder of each subproject, as you can see for <a href="#code/modules/web/app/controllers/Assets.scala" class="shortcut">modules/web/app/controllers/Assets.scala</a>.</p>
+
+			<p>And add the following in the routes files (check it <a href="#code/modules/web/conf/web.routes" class="shortcut">here</a>):</p>
+			
+<pre>GET     /public/*file					controllers.web.Assets.public(path="/public", file: Asset)
+GET     /lib/*file						controllers.web.Assets.lib(path="/public/lib", file: Asset)
+GET     /css/*file						controllers.web.Assets.css(path="/public/stylesheets", file: Asset)
+GET     /js/*file							controllers.web.Assets.js(path="/public/javascripts", file: Asset)
+GET     /img/*file						controllers.web.Assets.img(path="/public/images", file: Asset)
+GET     /common/css/*file			controllers.web.Assets.commonCss(path="/public/lib/common/stylesheets", file: Asset)
+GET     /common/js/*file			controllers.web.Assets.commonJs(path="/public/lib/common/javascripts", file: Asset)
+GET     /common/img/*file			controllers.web.Assets.commonImg(path="/public/lib/common/images", file: Asset)</pre>
+	
+			<h3>Public files</h3>
+	
+			<p>
+				You can put the common public files in the subproject
+				<a href="#code/modules/common" class="shortcut">common</a>, within the folder
+				<a href="#code/modules/common/public" class="shortcut">modules/common/public/</a>.
+				The common Assets are packaged as Webjars for the other subprojects that depend on it,
+				so you must access to them through their correspoding lib folder:
+			</p>
+	
+			<pre>&lt;img src="@routes.Assets.commonImg("play.svg")"&gt;&lt;/img&gt;</pre>
+	
+			<p>	
+				And the specific code for each subproject will be added within its corresponding folder
+				<a href="#code/modules/admin/public" class="shortcut">modules/[subproject]/public/</a>.
+			</p>
+			
+			<h3>Shared resources</h3>
+			
+			<p>If you have shared resources between your subprojects, like for example uploaded images from your users, you need to render or download them from a shared folder. Note you can't consider a shared resource like a asset.</p>
+			
+			<p>The process is very similar than the custom <code>AssetsBuilder</code>. You can see it in <a href="#code/modules/common/app/controllers/Assets.scala" class="shortcut">modules/common/app/controllers/Assets.scala</a>.</p>
+			
+			<p>Add a simple <code>SharedResources</code> class within the <code>controllers</code> folder of each subproject, as you can see for <a href="#code/modules/web/app/controllers/Assets.scala" class="shortcut">modules/web/app/controllers/Assets.scala</a>.</p>
+
+			<p>And add the following in the routes files (check it <a href="#code/modules/web/conf/web.routes" class="shortcut">here</a>):</p>
+			
+<pre>GET     /rsc/*file         controllers.web.SharedResources.rsc(file: String)</pre>
+
+			<p><em>Note:</em> remember to set the absolute path to common resources folder with `rsc.folder` at the configuration file. Specially for production.</p>
+		</div>
+		<div>
+			<h2>RequestHandler</h2>
+			
+			<p>We need a global <code>RequestHandler</code> to run the whole project and get to things:</p>
+			
+			<ul>
+				<li>
+					Determine the subdomain for each request (<code>admin</code> or <code>web</code>) and delegate its behaviour to the corresponding subproject.
+				</li>
+				<li>
+					Rewrite the urls for the <code>public</code>, <code>css</code>, <code>js</code> and <code>img</code> assets for the corresponding subproject.
+					This is because for the root project these resources are located at <code>public/lib/[subproject]/</code>.
+				</li>
+			</ul>
+			
+			<p>These things are done overriding the <code>routeRequest</code> method of the <a href="#code/app/RequestHandler.scala" class="shortcut">RequestHandler</a>.</p>
+		</div>
+		<div>
+			<h2>ErrorHandler</h2>
+			
+			<p>As we did with <a href="#code/app/RequestHandler.scala" class="shortcut">RequestHandler</a>, we also need to do the same for <a href="#code/app/ErrorHandler.scala" class="shortcut">ErrorHandler</a>. In this case, we have a global <a href="#code/app/ErrorHandler.scala" class="shortcut">ErrorHandler</a> and  specific <a href="#code/modules/admin/app/utils/ErrorHandler.scala" class="shortcut">admin.ErrorHandler</a> and <a href="#code/modules/web/app/utils/ErrorHandler.scala" class="shortcut">web.ErrorHandler</a>.</p>
+			
+			<p>When running the whole project, the global one will determine the subdomain for each request and delegate its behaviour to the corresponding subproject. Remember that is necessary to declare each specific <code>ErrorHandler</code> withing the corresponding configuration file.</p>
+		</div>
+		<div>
+			<h2>Webjars</h2>
+	
+			<p>
+				The common <a href="http://www.webjars.org" target="_blank">Webjars</a> are included within
+				the field <code>Common.commonDependencies</code> in the file
+				<a href="#code/project/Common.scala" class="shortcut">project/Common.scala</a>. In our case:</p>
+	
+<pre>val commonDependencies = Seq(
+  ...
+  "org.webjars" % "jquery" % "3.1.0",
+  "org.webjars" % "bootstrap" % "3.3.7-1" exclude("org.webjars", "jquery"),
+  "org.webjars" % "requirejs" % "2.3.1"
+  ...
+)</pre>
+
+			<p>
+				And the specific webjars for a subproject are declared in the file
+				<a href="#code/modules/web/build.sbt" class="shortcut">modules/[subproject]/build.sbt</a>.
+				For example, for the <a href="#code/modules/web/build.sbt" class="shortcut">web</a> subproject:
+			</p>
+
+<pre>libraryDependencies ++= Common.commonDependencies ++: Seq(
+  "org.webjars" % "bootswatch-cerulean" % "3.3.5+4"
+)</pre>
+
+			<p>
+				Then, to access to their resources simply remember they are inside <code>lib</code> folder.
+				For the previous examples:
+			</p>
+	
+<pre>&lt;link rel="stylesheet" media="screen" href="@routes.Assets.lib("bootswatch-cerulean/css/bootstrap.min.css")"&gt;
+&lt;script src="@routes.Assets.lib("jquery/jquery.min.js")"&gt;&lt;/script&gt;
+&lt;script src="@routes.Assets.lib("bootstrap/js/bootstrap.min.js")"&gt;&lt;/script&gt;</pre>
+
+			<p>
+				If you have doubts about the specific route of any webjar resource, remember it is directly
+				downloaded within the relative folder <code>target/web/web-modules/main/webjars/lib</code>.
+				So you can easily check the file structure that has been downloaded by the webjar.
+			</p>
+		</div>
+		<div>
+			<h2>CoffeeScript</h2>
+			
+			<p>
+				The corresponding plugin needs to be active in file
+				<a href="#code/project/plugins.sbt" class="shortcut">project/plugins.sbt</a>.
+			</p>
+
+			<p>
+				The common CoffeeScript files are in the subproject
+				<a href="#code/modules/common" class="shortcut">common</a>, within the folder
+				<a href="#code/modules/common/app/assets/javascripts/" class="shortcut">modules/common/app/assets/javascripts</a>.
+				And the specific code for each subproject will be added within its corresponding folder
+				<a href="#code/modules/admin/app/assets/javascripts/" class="shortcut">modules/[subproject]/app/assets/javascripts/</a>.
+			</p>
+
+			<p>To access to the compiled file you simply have to reference to its JS equivalent:</p>
+
+<pre>&lt;script src="@routes.Assets.js("main.js")"&gt;&lt;/script&gt;</pre>
+
+			<p>
+				For more information, go to the documentation page about
+				<a href="http://www.playframework.com/documentation/2.5.x/AssetsCoffeeScript" target="_blank">CoffeeScript</a>.
+			</p>
+		</div>
+		<div>
+			<h2>LESS</h2>
+			
+			<p>
+				The corresponding plugin needs to be active in file
+				<a href="#code/project/plugins.sbt" class="shortcut">project/plugins.sbt</a>.
+				And the next configuration has been added to every subproject to be able to work with
+				partial LESS source files (in <a href="#code/project/Common.scala" class="shortcut">project/Common.scala</a>):
+			</p>
+			
+<pre>includeFilter in (Assets, LessKeys.less) := "*.less"
+excludeFilter in (Assets, LessKeys.less) := "_*.less"</pre>
+
+			<p>
+				With that, every LESS file not prepended by an underscore (<code>_</code>) will be compiled,
+				and they could import the code from the LESS files prepended by an underscore.
+			</p>
+
+			<p>
+				The common LESS files are in the subproject
+				<a href="#code/modules/common" class="shortcut">common</a>, within the folder
+				<a href="#code/modules/common/app/assets/stylesheets" class="shortcut">modules/common/app/assets/stylesheets/</a>.
+				And the specific code for each subproject will be added within its corresponding folder
+				<a href="#code/modules/admin/app/assets/stylesheets" class="shortcut">modules/[subproject]/app/assets/stylesheets/</a>.
+			</p>
+			
+			<p>
+				To import a common LESS file, import it directly as (you can check an example in
+				<a href="#code/modules/admin/app/assets/stylesheets/_variables.less" class="shortcut">modules/admin/app/assets/stylesheets/_variables.less</a>):
+			</p>
+			
+<pre>@import "../../../../../common/app/assets/stylesheets/_common.less";</pre>
+
+			<p>To access to the compiled file you simply have to reference to its CSS equivalent:</p>
+
+<pre>&lt;link rel="stylesheet" media="screen" href="@routes.Assets.css("main.css")"&gt;</pre>
+
+			<p>
+				For more information, go to the documentation page about
+				<a href="http://www.playframework.com/documentation/2.5.x/AssetsLess" target="_blank">LESS</a>.
+			</p>
+		</div>
+		<div>
+			<h2>Internationalization: how to split messages files</h2>
+			
+			<p>Well... it's a tricky one. We need the corresponding messages files within the conf directory of each subproject.  But we have 2 problems:</p>
+			
+			<ul>
+				<li>What about sharing some message definitions from common subproject?</li>
+				<li>We also need the corresponding messages files for root project with all the message definitions.</li>
+			</ul>
+			
+			<p>In fact, the main purpose of this project is to show you how to share and reduce your code, so let's go.</p>
+			
+			<p>
+				To resolve that, we need to take advantage of <code>sbt</code>. So a new
+				<a href="http://www.scala-sbt.org/release/docs/Howto-Generating-Files.html#Generate+resources" target="_blank">resourceGenerator</a> has been defined in
+				<a href="#code/project/Common.scala" class="shortcut">Common.scala</a> that is executed each time the project is compiled. It works in the following way:
+			</p>
+			
+			<ul>
+				<li>Put your shared messages files within <a href="#code/modules/common/conf/messages" class="shortcut">modules/common/conf/messages/</a>.</li>
+				<li>Put your specific messages files for each services within <a href="#code/modules/web/conf/messages" class="shortcut">modules/[subproject]/conf/messages/</a>.</li>
+				<li>Use the <code>messagesFilesFrom</code> argument of <code>appSettings</code> and <code>serviceSettings</code> methods of <a href="#code/project/Common.scala" class="shortcut">Common.scala</a> to specify the list and priority of the corresponding subprojects messages files used for each one. In the example, for <a href="#code/modules/web/build.sbt" class="shortcut">web</a> subproject <a href="#code/modules/web/build.sbt" class="shortcut">messagesFilesFrom = Seq("common", "web")</a> and for root project <a href="#code/build.sbt" class="shortcut">messagesFilesFrom = Seq("common", "admin", "web")</a>.</li>
+				<li>Each time the code is compiled, every needed messages file will be generated appending the corresponding previous ones. Note these files will <strong>only</strong> be generated within the <code>target</code> file.</li>
+			</ul>
+			
+			<p><strong><em>Assumption</em></strong>: if there are 2 coincidences within the same file, the last one will be taken. So it is ordered from lower to higher priority.</p>
+		</div>
+		<div>
+			<h2>Development</h2>
+			
+			<p>
+				First of all, to get access to <code>admin</code> subdomain you will need modify
+				your <code>/etc/hosts</code> files (or the equivalent in your S.O.) to map the
+				next URLs to <code>localhost</code> or (<code>127.0.0.1</code>).
+				For example, add the following lines:
+			</p>
+
+<pre>127.0.0.1	myweb.com
+127.0.0.1	www.myweb.com
+127.0.0.1	admin.myweb.com</pre>
+
+			<p>Then, simply execute:</p>
+
+<pre>$ activator run</pre>
+
+			<p>or</p>
+
+<pre>[play-multidomain-seed] $ run</pre>
+
+			<p>
+				And that's all! The whole project will run using the
+				<a href="#code/conf/root-dev.conf" class="shortcut">conf/root-dev.conf</a> file enabling
+				all the services at once. You can go with your browser and check the URLs:
+			</p>
+
+			<ul>
+				<li><code>myweb.com:9000</code> or <code>www.myweb.com:9000</code>: public webpage</li>
+				<li><code>admin.myweb.com:9000</code>: private admin webpage</li>
+			</ul>
+
+			<p>
+				As you can see, you must add the default <code>9000</code> port, but you can use the
+				port you want with the parameter with <code>activator run -Dhttp.port=9001</code>.
+			</p>
+
+			<p>
+				If you want to run only one subproject separately, you have to get into the subproject and run:
+			</p>
+
+<pre>[play-multidomain-seed] $ project admin
+[admin] $ run</pre>
+		</div>
+		<div>
+			<h2>Test</h2>
+			
+			<p>
+				Each subproject has its own test files within the folder
+				<a href="#code/modules/admin/test" class="shortcut">modules/[subproject]/test</a>.
+			</p>
+
+			<p>To run the tests for every subproject at once, simply execute:</p>
+
+<pre>[play-multidomain-seed] $ test</pre>
+
+			<p>And for a unique subproject, get into it and test it:</p>
+			
+<pre>[play-multidomain-seed] $ project admin
+[admin] $ test</pre>
+		</div>
+		<div>
+			<h2>Production</h2>
+			
+			<p><em>Note:</em> remember to set the absolute path to common resources folder with `rsc.folder` at the configuration file.</p>
+			
+			<p>Simply execute:</p>
+
+<pre>$ activator dist</pre>
+			
+			<p>or</p>
+
+<pre>[play-multidomain-seed] $ dist</pre>
+
+			<p>Now you have a zip file for each module.</p>
+				
+<pre>/play-multidomain-seed/modules/web/target/universal/web-1.0-SNAPSHOT.zip
+/play-multidomain-seed/modules/admin/target/universal/admin-1.0-SNAPSHOT.zip</pre>
+
+			<p>So you can extract wherever you want and execute them separately. For example with:</p>
+
+<pre>./admin-1.0-SNAPSHOT/bin/admin -Dconfig.resource=admin-prod.conf -Dhttp.port=9001 -Dapplication.secret=abcdefghijk &</pre>
+
+			<p>
+				Note it is added the <code>&</code> at the end to run the app in the background.
+				The PID will be stored in <code>RUNNING_PID</code> file, so when you want to stop
+				the app, just execute:
+			</p>
+
+<pre>kill $(cat path/to/RUNNING_PID)</pre>
+
+			<p>
+				If you would like to test the whole project in production mode, you should be able
+				to execute the start command as:
+			</p>
+			
+<pre>[play-multidomain-seed] $ start</pre>
+
+			<p>
+				Please, check the documentation about
+				<a href="http://www.playframework.com/documentation/2.5.x/ProductionConfiguration" target="_blank">Production Configuration</a>
+				for more parameters. And also check about
+				<a href="http://www.playframework.com/documentation/2.5.x/ApplicationSecret" target="_blank">Application Secret</a>.</p>	
+		</div>
+	</body>
+</html>

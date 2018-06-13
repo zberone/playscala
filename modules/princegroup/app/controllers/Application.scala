@@ -12,7 +12,7 @@ class Application @Inject() (val messagesApi: MessagesApi, conf: Configuration) 
 
   def index = Action { implicit request =>
     val computers = PrincegroupWeb.list
-    Ok(views.html.web.index(Messages("web.subtitle"), computers, configThisFile = conf.underlying.as[String]("this.file")))
+    Ok(views.html.princegroup.index(Messages("princegroup.subtitle"), computers, configThisFile = conf.underlying.as[String]("this.file")))
   }
 
   def selectLang(lang: String) = Action { implicit request =>

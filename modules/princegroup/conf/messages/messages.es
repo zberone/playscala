@@ -3,5 +3,5 @@
 ################################################################################################
 # princegroup
 
-web.title=Plantilla PrinceGroup
-web.subtitle=¡Hola! ¡Soy PrinceGroup!
+princegroup.title=Plantilla PrinceGroup
+princegroup.subtitle=¡Hola! ¡Soy PrinceGroup!

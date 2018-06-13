@@ -21,7 +21,7 @@
 	</div>
 }
 
-@views.html.web.main(title = message, modals = theModals) {
+@views.html.princegroup.main(title = message, modals = theModals) {
 	
 	<div class="pull-right">
 		<img src="@routes.Assets.commonImg("play.svg")" width="250" style="margin: 10px 0 20px 0"></img>
@@ -36,8 +36,8 @@
 		<a class="btn btn-default" href="@routes.Application.selectLang("es")">西班牙</a>
 		}
 		case "es" => {
-		<a class="btn btn-default" href="@routes.Application.selectLang("en")">Ver en English </a><br />
-		<a class="btn btn-default" href="@routes.Application.selectLang("zh-CN")">Ver en chinese</a>
+		<a class="btn btn-default" href="@routes.Application.selectLang("zh-CN")">Ver en chinese</a><br />
+		<a class="btn btn-default" href="@routes.Application.selectLang("en")">Ver en English </a>
 		}
 		case _ => {
 		<a class="btn btn-default" href="@routes.Application.selectLang("zh-CN")">See in Chinese</a><br />
@@ -46,8 +46,8 @@
 		}
 	</div>
 	
-	<h1>@Messages("web.title")</h1>
-	<h3>@message <a href="@routes.Application.index">@Messages("reload")</a></h3>
+	<h1>@Messages("princegroup.title")</h1>
+	<h3>@message <a href="@routes.Application.index">@Messages("reload")</a>PrinceGroup</h3>
 	
 	<button class="btn btn-primary btn-lg" id="btn-web-modal">@Messages("button")</button>
 

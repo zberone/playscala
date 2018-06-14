@@ -1,7 +1,9 @@
+@import controllers.fiveram.routes
+
 @defining(play.core.PlayVersion.current) { version =>
 <!-- 底部 -->
 <div id="fd">
-    <img src="@routes.Assets.at("/fiveram/images/fd-logo.png")" alt="">
+    <img src="@routes.Assets.public("/fiveram/images/fd-logo.png")" alt="">
     <h3>五羊母婴集团</h3>
     <!-- 版权 -->
     <div class="weblink">
@@ -63,7 +65,7 @@
         </li>
         <li class="li4"><a href="">扫描二维码</a></li>
         <li class="li5">
-            <img src="@routes.Assets.at("/fiveram/images/weixin.jpg")" alt="">
+            <img src="@routes.Assets.public("/fiveram/images/weixin.jpg")" alt="">
         </li>
     </ul>
 </div>
@@ -78,8 +80,8 @@
     </ul>
 </div>
 <!-- 右侧 -->
-<link rel="stylesheet" href="@routes.Assets.at("/stylesheets/css/animate.css")">
-<script src="@routes.Assets.at("/javascripts/js/wow.min.js")"></script>
+<link rel="stylesheet" href="@routes.Assets.public("/stylesheets/css/animate.css")">
+<script src="@routes.Assets.public("/javascripts/js/wow.min.js")"></script>
 <script>
         //首页
         $(".index li").hover(function(){

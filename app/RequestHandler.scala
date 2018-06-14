@@ -27,7 +27,7 @@ class VirtualHostRequestHandler @Inject() (
   override def routeRequest(request: RequestHeader) = getSubdomain(request) match {
     case "web.example.com" => webRouter.routes.lift(rewriteAssets("web", request))
     case "princegroup.example.com" => princegroupRouter.routes.lift(rewriteAssets("princegroup", request))
-    case "fiveram.example.com" => princegroupRouter.routes.lift(rewriteAssets("fiveram", request))
+    case "fiveram.example.com" => fiveramRouter.routes.lift(rewriteAssets("fiveram", request))
     case _ => adminRouter.routes.lift(rewriteAssets("admin", request))
   }
 

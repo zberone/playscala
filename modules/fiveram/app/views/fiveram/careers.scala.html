@@ -1,0 +1,48 @@
+@*
+* This template takes a single argument, a String containing a
+@* content Template File *@
+
+@import controllers.fiveram.routes
+
+@(message: String)
+
+@main("五羊 | 职业发展"){
+<!-- 主体内容 -->
+<div id="bd" >
+    <div class="careers"><img class="bg-img" src="@routes.Assets.public("/fiveram/images/bg2.jpg")"></img></div>
+
+    <!-- 职业发展 -->
+    <div class="development">
+
+        <div class="txt wow fadeInUp">
+            <div>
+                <h4>因你而不同</h4>
+                <p>我们只不过是母婴事业上一群打着鸡血的忠粉</p>
+                <p>你有任何想法都可以大声说出来。</p>
+                <a href="http://jobs.51job.com/all/co2632896.html" target="_blank" class=" wow fadeInUp" data-wow-delay=".5s">加入我们 ></a>
+
+                <ul>
+                    <li><img src="@routes.Assets.public("/fiveram/images/l-pic2.png")" alt=""></li>
+                    <li class="li2"><img src="@routes.Assets.public("/fiveram/images/l-pic1.png")" alt=""></li>
+                    <li class="li3"><img src="@routes.Assets.public("/fiveram/images/l-pic3.png")" alt=""></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 落叶 -->
+        <div id="g-leaves">
+            <div class="div div2">
+                <img src="@routes.Assets.public("/fiveram/images/ly1.png")" alt="" class="img1">
+                <img src="@routes.Assets.public("/fiveram/images/ly2.png")" alt="" class="img2">
+                <img src="@routes.Assets.public("/fiveram/images/ly3.png")" alt="" class="img3">
+                <img src="@routes.Assets.public("/fiveram/images/ly4.png")" alt="" class="img4">
+                <img src="@routes.Assets.public("/fiveram/images/ly5.png")" alt="" class="img5">
+                <img src="@routes.Assets.public("/fiveram/images/ly6.png")" alt="" class="img6">
+                <img src="@routes.Assets.public("/fiveram/images/ly7.png")" alt="" class="img7">
+            </div>
+        </div>
+        <!-- 落叶 -->
+    </div>
+<!-- 职业发展 -->
+</div>
+<!-- 主体内容 -->
+}

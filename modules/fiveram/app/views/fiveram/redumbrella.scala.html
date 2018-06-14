@@ -1,6 +1,9 @@
 @*
 * This template takes a single argument, a String containing a
 @* content Template File *@
+
+@import controllers.fiveram.routes
+
 @(message: String)
 
 
@@ -10,39 +13,39 @@
 
 <div class="redumbrella" >
     <div  >
-        <img class="bg-img"  src="@routes.Assets.at("/fiveram/images/xiaohongsan_01.jpg")"></img>
+        <img class="bg-img"  src="@routes.Assets.public("/fiveram/images/xiaohongsan_01.jpg")"></img>
     </div>
     <div class="umbrella">
         <div>
-            <img src="@routes.Assets.at("/fiveram/images/xiaohongsan_02.jpg")"  height="924" alt="">
+            <img src="@routes.Assets.public("/fiveram/images/xiaohongsan_02.jpg")"  height="924" alt="">
         </div>
         <div>
-            <img src="@routes.Assets.at("/fiveram/images/xiaohongsan_03.jpg")"  height="493" alt="">
+            <img src="@routes.Assets.public("/fiveram/images/xiaohongsan_03.jpg")"  height="493" alt="">
         </div>
         <div >
-            <img src="@routes.Assets.at("/fiveram/images/xiaohongsan_04.jpg")"  height="641" alt="">
+            <img src="@routes.Assets.public("/fiveram/images/xiaohongsan_04.jpg")"  height="641" alt="">
         </div>
         <div>
-            <img src="@routes.Assets.at("/fiveram/images/xiaohongsan_05.jpg")"  height="333" alt="" >
+            <img src="@routes.Assets.public("/fiveram/images/xiaohongsan_05.jpg")"  height="333" alt="" >
         </div>
         <div>
-            <img src="@routes.Assets.at("/fiveram/images/xiaohongsan_06.jpg")"  height="468" alt="" >
+            <img src="@routes.Assets.public("/fiveram/images/xiaohongsan_06.jpg")"  height="468" alt="" >
         </div>
         <div>
-            <img src="@routes.Assets.at("/fiveram/images/xiaohongsan_07.jpg")"  height="426" alt="" >
+            <img src="@routes.Assets.public("/fiveram/images/xiaohongsan_07.jpg")"  height="426" alt="" >
         </div>
         <div>
-            <img src="@routes.Assets.at("/fiveram/images/xiaohongsan_08.jpg")"  height="1075" alt="" >
+            <img src="@routes.Assets.public("/fiveram/images/xiaohongsan_08.jpg")"  height="1075" alt="" >
         </div>
         <div>
-            <img src="@routes.Assets.at("/fiveram/images/xiaohongsan_09.jpg")"  height="592" alt="" >
+            <img src="@routes.Assets.public("/fiveram/images/xiaohongsan_09.jpg")"  height="592" alt="" >
         </div>
         <div class="redmain4 wow " data-wow-duration="10" style="height: 596px;  background-color: #f7f6fb;">
             <div class="wrap-red" style="width: 1310px;">
                 <div class="news" style="margin-left: 190px;">
                     <h2 style="margin-top: 50px;">“五羊小红伞”最新动态</h2>
                     <div class="npic">
-                        <img src="@routes.Assets.at("/fiveram/images/san-pic6.jpg")" width="612" height="410" />
+                        <img src="@routes.Assets.public("/fiveram/images/san-pic6.jpg")" width="612" height="410" />
                     </div>
                     <div class="ntxt">
                         <h3 style="color:red;margin-bottom:20px;">助力宝宝快乐成长</h3>
@@ -77,10 +80,10 @@
 </div>
 
 <!-- 主体内容 -->
-<link rel="stylesheet" href="@routes.Assets.at("/stylesheets/css/animate.css")">
-<link rel="stylesheet" href="@routes.Assets.at("/stylesheets/css/redumbrella.css")">
-<script src="@routes.Assets.at("/javascripts/js/wow.min.js")"></script>
-<script type="text/javascript" src="@routes.Assets.at("/javascripts/js/jwplayer.js")"></script>
+<link rel="stylesheet" href="@routes.Assets.public("/stylesheets/css/animate.css")">
+<link rel="stylesheet" href="@routes.Assets.public("/stylesheets/css/redumbrella.css")">
+<script src="@routes.Assets.public("/javascripts/js/wow.min.js")"></script>
+<script type="text/javascript" src="@routes.Assets.public("/javascripts/js/jwplayer.js")"></script>
 
 
 }

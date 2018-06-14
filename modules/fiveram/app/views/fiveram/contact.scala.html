@@ -1,4 +1,7 @@
 @* content Template File *@
+
+@import controllers.fiveram.routes
+
 @(message: String)
 
 @main("五羊 | 联系我们"){
@@ -8,11 +11,11 @@
 	<!-- 联系我们 -->
 	<div class="contact-us">
 		<!-- 大图 -->
-		<img class="ban" src="@routes.Assets.at("/fiveram/images/bg1.jpg")"></img>
+		<img class="ban" src="@routes.Assets.public("/fiveram/images/bg1.jpg")"></img>
 		<!-- 大图 -->
 
 		<div class="con wow fadeInUp">
-			<div class="img" ><img src="@routes.Assets.at("/fiveram/images/address1.png")"></img></div>
+			<div class="img" ><img src="@routes.Assets.public("/fiveram/images/address1.png")"></img></div>
 
 			<div class="txt">
 				<h3>集团总部</h3>
@@ -33,13 +36,13 @@
 <!-- 落叶 -->
 <div id="g-leaves" class="g-leaves2">
 	<div>
-		<img src="@routes.Assets.at("/fiveram/images/ly1.png")" alt="" class="img1">
-		<img src="@routes.Assets.at("/fiveram/images/ly2.png")" alt="" class="img2">
-		<img src="@routes.Assets.at("/fiveram/images/ly3.png")" alt="" class="img3">
-		<img src="@routes.Assets.at("/fiveram/images/ly4.png")" alt="" class="img4">
-		<img src="@routes.Assets.at("/fiveram/images/ly5.png")" alt="" class="img5">
-		<img src="@routes.Assets.at("/fiveram/images/ly6.png")" alt="" class="img6">
-		<img src="@routes.Assets.at("/fiveram/images/ly7.png")" alt="" class="img7">
+		<img src="@routes.Assets.public("/fiveram/images/ly1.png")" alt="" class="img1">
+		<img src="@routes.Assets.public("/fiveram/images/ly2.png")" alt="" class="img2">
+		<img src="@routes.Assets.public("/fiveram/images/ly3.png")" alt="" class="img3">
+		<img src="@routes.Assets.public("/fiveram/images/ly4.png")" alt="" class="img4">
+		<img src="@routes.Assets.public("/fiveram/images/ly5.png")" alt="" class="img5">
+		<img src="@routes.Assets.public("/fiveram/images/ly6.png")" alt="" class="img6">
+		<img src="@routes.Assets.public("/fiveram/images/ly7.png")" alt="" class="img7">
 	</div>
 </div>
 <!-- 落叶 -->

@@ -8,7 +8,7 @@ GET		/contact					controllers.fiveram.FiveramController.contact
 GET     /brand                      controllers.fiveram.FiveramController.brand
 GET     /careers                      controllers.fiveram.FiveramController.careers
 GET     /redumbrella                  controllers.fiveram.FiveramController.redumbrella
-GET     /assets/*file               controllers.fiveram.Assets.at(path="/public/lib/fiveram", file)
+#GET     /assets/*file               controllers.fiveram.Assets.at(path="/public", file)
 
 GET     /lang/$lang<(en|es|zh-CN)>		controllers.fiveram.FiveramController.selectLang(lang: String)
 

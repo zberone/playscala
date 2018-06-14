@@ -1,13 +1,2 @@
-# Messages
+# Messages Fiveram En
 
-computers.list.head={0,choice,0#No computers|1#One computer|1<{0,number,integer} computers} found
-computers.list.name=Computer name
-computers.list.introduced=Introduced
-computers.list.discontinued=Discontinued
-computers.list.company=Company
-computers.list.prev=Previous
-computers.list.next=Next
-computers.list.create=Add a new computer
-computers.list.filter=Filter by computer name...
-computers.list.index=PlayIndex
-computers.list.title=ComputerDatabase

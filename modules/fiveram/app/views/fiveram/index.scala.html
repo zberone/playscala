@@ -1,4 +1,5 @@
 @(message: String)(implicit messages: Messages)
+@import controllers.fiveram.routes
 @main(title="五羊 | 首页") {
 
 <div id="bd" class="por">
@@ -6,7 +7,7 @@
  <!-- .g-ban -->
 
  <div class="g-ban" >
-  <img class="item" src="@routes.Assets.at("fiveram/images/ban1.jpg")" ></img></div>
+  <img class="item" src="@routes.Assets.public("fiveram/images/ban1.jpg")" ></img></div>
  </div>
 
 </div>

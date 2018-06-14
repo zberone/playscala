@@ -4,8 +4,10 @@
 * two arguments, a `String` for the title of the page and an `Html`
 * object to insert into the body of the page.
 *@
+@(title: String, styles: Html = Html(""), scripts: Html = Html(""), modals: Html = Html(""))(content: Html)
 
-@(title: String)(content: Html)
+@import controllers.fiveram.routes
+
 
 <!DOCTYPE html>
 <html >
@@ -14,18 +16,18 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <title>@title</title>
-<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/css/cui.css")">
-<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/css/lib.css")">
-<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/css/style.css")">
-<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-<script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script>
-<script src="@routes.Assets.at("javascripts/js/jquery.js")" type="text/javascript"></script>
-<script src="@routes.Assets.at("javascripts/js/lib.js")" type="text/javascript"></script>
-<script src="@routes.Assets.at("javascripts/js/vivus.js")" type="text/javascript"></script>
+<link rel="stylesheet" media="screen" href="@routes.Assets.public("stylesheets/css/cui.css")">
+<link rel="stylesheet" media="screen" href="@routes.Assets.public("stylesheets/css/lib.css")">
+<link rel="stylesheet" media="screen" href="@routes.Assets.public("stylesheets/css/style.css")">
+<link rel="shortcut icon" type="image/png" href="@routes.Assets.public("images/favicon.png")">
+<script src="@routes.Assets.public("javascripts/hello.js")" type="text/javascript"></script>
+<script src="@routes.Assets.public("javascripts/js/jquery.js")" type="text/javascript"></script>
+<script src="@routes.Assets.public("javascripts/js/lib.js")" type="text/javascript"></script>
+<script src="@routes.Assets.public("javascripts/js/vivus.js")" type="text/javascript"></script>
 
 <!--[if IE]>
-<script src="@routes.Assets.at("javascripts/js/html5.js")"></script>
-<script src="@routes.Assets.at("javascripts/js/respond.js")"></script>
+<script src="@routes.Assets.public("javascripts/js/html5.js")"></script>
+<script src="@routes.Assets.public("javascripts/js/respond.js")"></script>
 <![endif]-->
 <script type="text/javascript">
  function mobile_device_detect(url)
@@ -73,9 +75,8 @@ mobile_device_detect("http://www.fiveram.com.cn/babymch/index.html");
 <body>
 @* And here's where we render the `Html` object containing
 * the page content. *@
-@header()
+@header
 @content
 @footer()
 </body>
 </html>
-

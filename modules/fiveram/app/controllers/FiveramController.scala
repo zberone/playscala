@@ -1,9 +1,8 @@
 package controllers.fiveram
 
-
-import javax.inject._
+import javax.inject.{ Inject, Singleton }
 import play.api._
-import play.api.i18n.{I18nSupport, Lang}
+import play.api.i18n.{ I18nSupport, Lang, MessagesApi }
 import play.api.mvc._
 
 /**
@@ -13,9 +12,9 @@ import play.api.mvc._
  *
  */
 @Singleton
-class FiveramController @Inject() (cc: ControllerComponents) extends AbstractController(cc) with I18nSupport {
+class FiveramController @Inject() (val messagesApi: MessagesApi, conf: Configuration) extends Controller with I18nSupport {
 
- // val Fiveram = Redirect(routes.FiveramController.index())
+  // val Fiveram = Redirect(routes.FiveramController.index())
   /**
    * Create an Action to render an HTML page with a welcome message.
    * The configuration in the `routes` file means that this method
@@ -23,22 +22,22 @@ class FiveramController @Inject() (cc: ControllerComponents) extends AbstractCon
    * a path of `/`.
    */
   def index = Action {
-    Ok(views.fiveram.html.index("AnormHome"))
+    Ok(views.html.fiveram.index("AnormHome"))
   }
   def about = Action {
-    Ok(views.fiveram.html.about("About"))
+    Ok(views.html.fiveram.about("About"))
   }
   def contact = Action {
-    Ok(views.fiveram.html.contact("Contact"))
+    Ok(views.html.fiveram.contact("Contact"))
   }
   def brand = Action {
-    Ok(views.fiveram.html.brand("Brand"))
+    Ok(views.html.fiveram.brand("Brand"))
   }
   def careers = Action {
-    Ok(views.fiveram.html.careers("Careers"))
+    Ok(views.html.fiveram.careers("Careers"))
   }
   def redumbrella = Action {
-    Ok(views.fiveram.html.redumbrella("RedUmbrella"))
+    Ok(views.html.fiveram.redumbrella("RedUmbrella"))
   }
 
   def selectLang(lang: String) = Action { implicit request =>

@@ -1,3 +1,5 @@
+## Add new WEB subprojrect "princegroup"
+
 ## Multidomain Seed [Play 2.5 - Scala]
 
 __Note:__ All this information is also available as a tutorial if you run the app using [Activator UI](http://typesafe.com/platform/getstarted).

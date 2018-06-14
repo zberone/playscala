@@ -1,4 +1,5 @@
 ## Add new WEB subprojrect "princegroup"
+`princegroup.example.com`:as some "web"
 
 ## Multidomain Seed [Play 2.5 - Scala]
 

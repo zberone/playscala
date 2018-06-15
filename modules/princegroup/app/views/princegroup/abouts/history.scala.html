@@ -1,3 +1,4 @@
+@(message: String)(implicit messages: Messages)
 @import controllers.princegroup.routes
 @defining(play.core.PlayVersion.current) { version =>
 
@@ -7,8 +8,8 @@
 
 <div class="about-right-box" style="display: block;">
     <div class="about-box-til">
-        <div><a href="@routes.Application.">首页 </a><a href="@routes.Application.about()">关于王子</a> /  <span>发展历程</span></div>
-        <div>发展历程</div>
+        <div><a href="@routes.Application.">@Messages("princegroup.home") </a><a href="@routes.Application.about()">@Messages("princegroup.aboutoji")</a> /  <span>@Messages("princegroup.about.history")</span></div>
+        <div>@Messages("princegroup.about.history")</div>
     </div>
 
     <div class="about-history">

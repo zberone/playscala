@@ -1,10 +1,11 @@
+@(message: String)(implicit messages: Messages)
 @import controllers.princegroup.routes
 @defining(play.core.PlayVersion.current) { version =>
 <!--五羊-->
 
 <div class="pro-box" style="display: block;">
     <div class="about-box-til">
-        <div><a href="/cn/">首页</a><a href="/cn/brands/">旗下品牌</a> / <span>湃迪</span></div>
+        <div><a href="/cn/">@Messages("princegroup.home")</a><a href="/cn/brands/">>@Messages("princegroup.brands")</a> / <span>湃迪</span></div>
         <div> 湃迪成人纸尿裤</div>
     </div>
     <div class="pro-text">

@@ -12,9 +12,9 @@
     <div class="thebox">
         <!--左侧菜单-->
         <div class="about-left">
-            <div><a href="@routes.Application.about()">关于王子</a></div>
+            <div><a href="@routes.Application.about()">@Messages("princegroup.aboutoji")</a></div>
             <div id="navi">
-                <a href="@routes.Application.brands()">旗下品牌</a>
+                <a href="@routes.Application.brands()">>@Messages("princegroup.brands")</a>
                 <ul class="pro-act">
 
                     <li @if(brandID=="fiveram"){class='lli-act'} > <a href="@routes.Application.brands("fiveram")">五羊</a></li>
@@ -23,8 +23,8 @@
 
                 </ul>
             </div>
-            <div><a href="@routes.Application.csr">社会责任</a></div>
-            <div><a href="@routes.Application.contact">联系我们</a></div>
+            <div><a href="@routes.Application.csr">@Messages("princegroup.csr")</a></div>
+            <div><a href="@routes.Application.contact">@Messages("princegroup.contact")</a></div>
         </div>
         <!--右侧盒子-->
         <!--五羊-->
@@ -32,16 +32,16 @@
 
         @brandID match {
             case "fiveram" => {
-                        @views.html.princegroup.brand.fiveram()
+                        @views.html.princegroup.brand.fiveram("")
             }
             case "bibi" => {
-                    @views.html.princegroup.brand.bibi()
+                    @views.html.princegroup.brand.bibi("")
             }
             case "pid" => {
-                     @views.html.princegroup.brand.pid()
+                     @views.html.princegroup.brand.pid("")
             }
             case _ => {
-                    @views.html.princegroup.brand.fiveram()
+                    @views.html.princegroup.brand.fiveram("")
             }
 
         }

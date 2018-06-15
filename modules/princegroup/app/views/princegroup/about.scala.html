@@ -19,18 +19,18 @@
     *****************@
     <div class="about-left">
         <div>
-            <a href="@routes.Application.about()">关于王子</a>
+            <a href="@routes.Application.about()">@Messages("princegroup.aboutoji")</a>
             <ul class="about-chan">
-                <li @if(aboutID=="history"){class='lli-act'}><a href="@routes.Application.about("history")">发展历程</a></li>
-                <li @if(aboutID=="groupdata"){class='lli-act'}><a href="@routes.Application.about("groupdata")">集团概况</a></li>
-                <li @if(aboutID=="architecture"){class='lli-act'}><a href="@routes.Application.about("architecture")">组织架构</a></li>
-                <li @if(aboutID=="culture"){class='lli-act'}><a href="@routes.Application.about("culture")">企业文化</a></li>
-                <li @if(aboutID=="advantages"){class='lli-act'}><a href="@routes.Application.about("advantages")">核心优势</a></li>
+                <li @if(aboutID=="history"){class='lli-act'}><a href="@routes.Application.about("history")">@Messages("princegroup.about.history")</a></li>
+                <li @if(aboutID=="groupdata"){class='lli-act'}><a href="@routes.Application.about("groupdata")">@Messages("princegroup.about.groupdata")</a></li>
+                <li @if(aboutID=="architecture"){class='lli-act'}><a href="@routes.Application.about("architecture")">@Messages("princegroup.about.architecture")</a></li>
+                <li @if(aboutID=="culture"){class='lli-act'}><a href="@routes.Application.about("culture")">@Messages("princegroup.about.culture")</a></li>
+                <li @if(aboutID=="advantages"){class='lli-act'}><a href="@routes.Application.about("advantages")">@Messages("princegroup.about.advantages")</a></li>
             </ul>
         </div>
-        <div><a href="@routes.Application.brands("")">旗下品牌</a></div>
-        <div><a href="@routes.Application.csr">社会责任</a></div>
-        <div><a href="@routes.Application.contact">联系我们</a></div>
+        <div><a href="@routes.Application.brands("")">@Messages("princegroup.brands")</a></div>
+        <div><a href="@routes.Application.csr">@Messages("princegroup.csr")</a></div>
+        <div><a href="@routes.Application.contact">@Messages("princegroup.contact")</a></div>
     </div>
     @***************
     **<!--右侧盒子-->**
@@ -39,19 +39,19 @@
 
         @aboutID match {
         case "advantages" => {
-        @views.html.princegroup.abouts.advantages()
+        @views.html.princegroup.abouts.advantages("")
         }
         case "architecture" => {
-        @views.html.princegroup.abouts.architecture()
+        @views.html.princegroup.abouts.architecture("")
         }
         case "culture" => {
-        @views.html.princegroup.abouts.culture()
+        @views.html.princegroup.abouts.culture("")
         }
         case "groupdata" => {
-        @views.html.princegroup.abouts.groupdata()
+        @views.html.princegroup.abouts.groupdata("")
         }
         case _ => {
-        @views.html.princegroup.abouts.history()
+        @views.html.princegroup.abouts.history("")
         }
 
         }

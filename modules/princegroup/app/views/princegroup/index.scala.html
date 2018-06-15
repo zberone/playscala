@@ -3,69 +3,259 @@
 @import controllers.princegroup.routes
 
 @theModals = {
-	<div class="modal fade" id="myWebModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">@Messages("modal.close")</span></button>
-	        <h4 class="modal-title" id="myModalLabel">@Messages("modal.title")</h4>
-	      </div>
-	      <div class="modal-body">
-	        <p>@Messages("modal.text")</p>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">@Messages("modal.close")</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
+</script>
+<script src="@routes.Assets.js("jquery.waypoints.min.js")"></script>
+<script type="text/javascript" src="@routes.Assets.js("jquery.countup.min.js")"></script>
+<script type="text/javascript">
+    $('.counter').countUp();
+  </script>
+<script language="javascript">
+// document.getElementById('nybanner').style.display = 'none';
+if ($(window).width() >= 768) {
+$(document).ready(function(){
+  var winHeight = $(window).height();
+  $(".thebig-o").css("height",winHeight);
+
+});}
+</script>
+<script>
+
+    var num = 0;
+    // 循环计时函数, 多次调用自身函数, num为被传递的参数
+    //我们的历史
+    function timedCounto(num) {
+      num++;//递增值
+      $(".thesp").eq(0).text(num);
+      // 设置条件使停止计时
+      if(num < 100) {//结束的数值
+        var t = setTimeout(function() {
+          timedCounto(num)
+        }, 50);//进行的时间（1000为1秒）
+      }
+    }
+    //你们的认可
+    function timedCountt(num) {
+      num += 10000;
+      $(".thesp").eq(1).text(num);
+      // 设置条件使停止计时
+      if(num < 10000000) {
+        var t = setTimeout(function() {
+          timedCountt(num)
+        }, 0.01);
+      }
+    }
+    //市场
+    function timedCountth(num) {
+      num += 10;
+      $(".thesp").eq(2).text(num);
+      // 设置条件使停止计时
+      if(num < 3000) {
+        var t = setTimeout(function() {
+          timedCountth(num)
+        }, 10);
+      }
+    }
+    //原材料
+    function timedCountf(num) {
+      num++;
+      $(".thesp").eq(3).text(num);
+      // 设置条件使停止计时
+      if(num < 10) {
+        var t = setTimeout(function() {
+          timedCountf(num)
+        }, 350);
+      }
+    }
+    //团队
+    function timedCountfi(num) {
+      num ++;
+      $(".thesp").eq(4).text(num);
+      // 设置条件使停止计时
+      if(num < 3) {
+        var t = setTimeout(function() {
+          timedCountfi(num)
+        }, 1000);
+      }
+    }
+    //质控
+    function timedCounts(num) {
+      num ++;
+      $(".thesp").eq(5).text(num);
+      // 设置条件使停止计时
+      if(num < 5) {
+        var t = setTimeout(function() {
+          timedCounts(num)
+        }, 800);
+      }
+    }
+    //滚动显示的效果
+    var h = document.documentElement.offsetHeight || document.body.offsetHeight ;
+    console.log(h);
+    function getTop() {
+      var top = $(document).scrollTop();
+      if($(document).scrollTop() > 500) {//滚动的高度
+        timedCountth(0);
+        timedCountf(0);
+        timedCounto(0);
+            timedCountt(0);
+            timedCountfi(0);
+        timedCounts(0);
+        console.log(top);
+        return;//返回函数
+      }
+      setTimeout(getTop);
+    }
+    getTop();
+</script>
 }
 
 @views.html.princegroup.main(title = message, modals = theModals) {
-	
-	<div class="pull-right">
-		<img src="@routes.Assets.commonImg("play.svg")" width="250" style="margin: 10px 0 20px 0"></img>
-		<p class="text-right">Conf file: @configThisFile</p>
-	</div>
-	<img class="pull-right" src="@routes.SharedResources.rsc("example.png")" style="margin: 10px 30px 0 0"></img>
-	
-	<div class="pull-right" style="margin: 10px 30px 0 0">
-		@messages.lang.code match {
-		case "zh-CN" => {
-		<a class="btn btn-default" href="@routes.Application.selectLang("en")">英&nbsp;&nbsp;&nbsp;&nbsp;文</a><br />
-		<a class="btn btn-default" href="@routes.Application.selectLang("es")">西班牙</a>
-		}
-		case "es" => {
-		<a class="btn btn-default" href="@routes.Application.selectLang("zh-CN")">Ver en chinese</a><br />
-		<a class="btn btn-default" href="@routes.Application.selectLang("en")">Ver en English </a>
-		}
-		case _ => {
-		<a class="btn btn-default" href="@routes.Application.selectLang("es")">See in Spanish</a><br />
-		<a class="btn btn-default" href="@routes.Application.selectLang("zh-CN")">See in Chinese</a>
-		}
-		}
-	</div>
-	
-	<h1>@Messages("princegroup.title")</h1>
-	<h3>@message <a href="@routes.Application.index">@Messages("reload")</a>PrinceGroup</h3>
-	
-	<button class="btn btn-primary btn-lg" id="btn-web-modal">@Messages("button")</button>
 
-	<h4>@Messages("computers"):</h4>
-	<table class="table table-striped table-condensed">
-		<tr>
-			<th>@Messages("computer.name")</th>
-			<th>@Messages("computer.introduced")</th>
-			<th>@Messages("computer.discontinued")</th>
-			<th>@Messages("computer.company")</th>
-		</tr>
-		@computers.map { computer =>
-			<tr>
-				<td>@computer.name</td>
-				<td>@computer.introduced</td>
-				<td>@computer.discontinued</td>
-				<td>@computer.company</td>
-			</tr>
-		}
-	</table>
+<!--首页内容-->
+<!--第一宽屏图-->
+<div class="thebig thebig-o" style="background: url('@routes.Assets.img("big-img01.jpg")'); height: 974px;">
+	<div class="big-img-box bbox01">
+		<div>旗下品牌</div>
+		<div class="bbox01-text">
+			<div>Fiveram</div>
+			<div>百年母婴护理品牌</div>
+			<div><a href="/cn/brands/fiveram.html"><img src="@routes.Assets.img("1-1P32GQ9460-L.png")"></a></div>
+		</div>
+		<div class="bbox01-text">
+			<div>bibi</div>
+			<div>美国高端纸尿裤品牌</div>
+			<div><a href="/cn/brands/bibi.html"><img src="@routes.Assets.img("1-1P32GR0080-L.png")"></a></div>
+		</div>
+		<div class="bbox01-text">
+			<div>Pid</div>
+			<div>专业成人纸尿裤品牌</div>
+			<div><a href="/cn/brands/pid.html"><img src="@routes.Assets.img("1-1P32GR0270-L.png")"></a></div>
+		</div>
+
+	</div>
+</div>
+<!--第一宽屏图下-->
+<div class="thebig-down bdown-o">
+	<div class="thebox">
+		<div class="bdown-til">
+			OJI 全球布局
+		</div>
+		<div class="thejump">
+			<div><a href="/cn/about/index.html#history">
+				<div>超过百年历史</div>
+				<div><span class="counter">100</span>+</div>
+			</a>
+			</div>
+			<div>
+				<a href="/cn/about/index.html#history">
+					<div>千万口碑实证</div>
+					<div><span class="counter">10,000,000</span></div>
+				</a>
+			</div>
+			<div>
+				<a href="/cn/about/index.html#market">
+					<div>超3,000家大型门店畅销</div>
+					<div><span class="counter">3,000</span>+</div>
+				</a>
+			</div>
+			<div>
+				<a href="/cn/about/index.html#market">
+					<div>优质原料精选自全球10国</div>
+					<div><span class="counter">10</span></div>
+				</a>
+			</div>
+			<div>
+				<a href="/cn/about/index.html#team">
+					<div>全球顶尖科研创新团队</div>
+					<div><span class="counter">3</span></div>
+				</a>
+			</div>
+			<div>
+				<a href="/cn/about/index.html#team">
+					<div>权威机构质检认证</div>
+					<div><span class="counter">5</span>+</div>
+				</a>
+			</div>
+		</div>
+		<div>我们所有的创新，多来源于现实生活中对宝宝与妈妈的洞察</div>
+	</div>
+</div>
+<!--第二宽屏图-->
+<div class="thebig thebig-t">
+	<div class="big-img-box bbox02">
+		<div class="bbox-til">
+			<div>Fiveram</div>
+			<div>百年母婴护理品牌</div>
+		</div>
+		<div><a href="/cn/brands/fiveram.html"><img src="@routes.Assets.img("bimg02-icon01.png")"></a></div>
+		<div><a href="/cn/brands/fiveram.html">查看更多<img src="@routes.Assets.img("gengduo.png")" alt=""></a></div>
+	</div>
+</div>
+<!--第二宽屏图下-->
+<div class="thebig-down bdown-t">
+
+	<div class="thebox">
+		<div class="bdown-til">
+			关于五羊
+		</div>
+		<div>
+			<div>
+				五羊品牌最早可追溯于1914年，是中国知名的母婴护理品牌。我们始终坚 持“秉承为人父母之tt心”的理念，集合全球研发团队的力量，致力于为 0-3岁婴幼儿及孕产期妈妈提供安全、优质、可靠、全面的产品及服务。 五羊所生产的婴儿湿巾，婴儿洗衣皂及其它母婴用品，已经超过1000万中 国家庭口碑实证，热销全球。</div>
+
+		</div>
+		<div><a href="/cn/brands/fiveram.html">查看更多<img src="@routes.Assets.img("gengduo02.png")" alt=""></a></div>
+	</div>
+
+</div>
+<!--第三宽屏图-->
+<div class="thebig thebig-th">
+	<div class="big-img-box bbox03">
+		<div class="bbox-til">
+			<div>bibi</div>
+			<div>美国高端纸尿裤品牌</div>
+		</div>
+		<div><a href="/cn/brands/bibi.html"><img src="@routes.Assets.img("bimg03-icon01.png")"></a></div>
+		<div><a href="/cn/brands/bibi.html">查看更多<img src="@routes.Assets.img("gengduo.png")" alt=""></a></div>
+	</div>
+</div>
+<!--第三宽屏图下-->
+<div class="thebig-down bdown-t">
+	<div class="thebox">
+		<div class="bdown-til">
+			关于bibi
+		</div>
+		<div>
+			<div>
+				bibi是源自美国的高端婴儿纸尿裤品牌。bibi专注于研发及生产优质安全 的婴儿纸尿裤，甄选全球优质原料，配备国际领先的科研团队，致力为全 球宝宝提供高端产品体验。目前已经为数千万的宝宝家庭提供高品质产 品，为妈妈们带来更加轻松便利的育儿生活。bibi始终关爱每一位宝宝， 为他们提供最舒适安全的呵护，陪伴宝宝健康快乐成长。</div>
+
+		</div>
+		<div><a href="/cn/brands/bibi.html">查看更多<img src="@routes.Assets.img("gengduo02.png")" alt=""></a></div>
+	</div>
+</div>
+<!--第四宽屏图-->
+<div class="thebig thebig-f">
+	<div class="big-img-box bbox04">
+		<div class="bbox-til">
+			<div>Pid</div>
+			<div>专业成人纸尿裤品牌</div>
+		</div>
+		<div><a href="/cn/brands/pid.html"><img src="@routes.Assets.img("bimg04-icon01.png")"></a></div>
+		<div><a href="/cn/brands/pid.html">查看更多<img src="@routes.Assets.img("gengduo.png")" alt=""></a></div>
+	</div>
+</div>
+<!--第四宽屏图下-->
+<div class="thebig-down bdown-t">
+	<div class="thebox">
+		<div class="bdown-til">
+			About  湃迪
+		</div>
+		<div>
+			<div>
+				湃迪是专业成人纸尿裤品牌，专注于失禁护理产品的研发与制造，为全球 消费者与医疗保健机构提供优质的产品与服务。配备全球顶尖的科研人才 与实验室，以强大的研发能力适应全球消费者的多元化需求，根据不同类 型使用者的身体状态，潜心研发全系列产品。通过优质、舒适、便利的使 用体验，最大程度维持使用者的行动能力与生活品质。</div>
+
+		</div>
+		<div><a href="/cn/brands/pid.html">查看更多<img src="@routes.Assets.img("gengduo02.png")" alt=""></a></div>
+	</div>
+</div>
+
 }

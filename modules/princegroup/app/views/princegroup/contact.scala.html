@@ -1,0 +1,109 @@
+@(message: String, computers: List[Computer], configThisFile: String)(implicit messages: Messages)
+
+@import controllers.princegroup.routes
+
+@theModals = {
+
+}
+
+@views.html.princegroup.main(title = message, modals = theModals) {
+
+
+<div class="thebox">
+    <!--左侧菜单-->
+    <div class="about-left">
+
+        <div class=""><a href="@routes.Application.about">关于王子</a></div>
+
+        <div class=""><a href="@routes.Application.brands("")">旗下品牌</a></div>
+
+        <div class=""><a href="@routes.Application.csr">社会责任</a></div>
+
+        <div class="bgg"><a href="@routes.Application.contact">联系我们</a></div>
+
+    </div>
+    <!--右侧盒子-->
+    <div class="about-right">
+        <div class="about-box-til">
+            <div><a href="@routes.Application.index">首页</a><a href="@routes.Application.contact">联系我们</a></div>
+            <div>联系我们</div>
+        </div>
+
+        <div class="cont-box">
+            <div>
+                <div>
+                    <h2>
+                        王子大健康-广州总部</h2>
+                    <p style="font-size:14px;margin-top:0px;margin-bottom:0px;line-height:28px;font-family:&quot;white-space:normal;">
+                        地址：广州市天河区珠江新城兴国路21号广物中心六楼</p>
+                    <p style="font-size:14px;margin-top:0px;margin-bottom:0px;line-height:28px;font-family:&quot;white-space:normal;">
+                        邮编：510627</p>
+                    <p style="font-size:14px;margin-top:0px;margin-bottom:0px;line-height:28px;font-family:&quot;white-space:normal;">
+                        总机：<a href="tel:020-3828 4257" style="text-decoration: none;color: #333333;">020-3828 4257</a></p>
+                    <p style="font-size:14px;margin-top:0px;margin-bottom:0px;line-height:28px;font-family:&quot;white-space:normal;">
+                        传真：<a href="tel:020-3828 4997" style="text-decoration: none;color: #333333;">020-3828 4997</a></p>
+                    <p style="font-size:14px;margin-top:0px;margin-bottom:0px;line-height:28px;font-family:&quot;white-space:normal;">
+                        公司网站：<a href="http://www.princegroup.com.cn/" style="text-decoration: none;color: #333333;">http://www.Princegroup.com.cn</a></p>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <div>
+                    <h2>
+                        产品咨询</h2>
+                    <p>
+                        <span style="font-family:&quot;white-space:normal;font-size:14px;">五羊经销代理洽谈：王先生，手机号码：</span><a href="tel:18988930080" style="text-decoration: none;color: #333333;">189 8893 0080</a></p>
+                    <p>
+                        <span style="font-family:&quot;white-space:normal;font-size:14px;">bibi、Pid经销代理洽谈：覃先生，手机号码：</span><a href="tel:18688470825" style="text-decoration: none;color: #333333;">186 8847 0825</a></p>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <div>
+                    <h2>
+                        品牌保护</h2>
+                    <p>
+                        <span style="font-family:&quot;white-space:normal;font-size:14px;">打假联络热线：</span><a href="tel:020-34284257" style="text-decoration: none;color: #333333;">020-3428 4257</a><span style="font-family:&quot;white-space:normal;font-size:14px;">&nbsp;转</span></p>
+                </div>
+                <br>
+                <br>
+                <hr>
+                <br>
+                <div>
+                    <h2>
+                        客服热线</h2>
+                    <p>
+                        <span style="font-family:&quot;white-space:normal;font-size:14px;">联系电话：</span><a href="tel:020-28050926" style="text-decoration: none;color: #333333;">020-2805 0926</a></p>
+                    <p>
+                        免费电话：<a href="tel:020-28050926" style="text-decoration: none;color: #333333;">400-800-2163</a></p>
+                </div>
+                <br>
+                <hr>
+            </div>
+            <br>
+            <!--
+                                    <form action="./" enctype="multipart/form-data" method="get" onsubmit="return validate_form(this)">
+                                    <input type="hidden" name="action" value="post">
+                                    <input type="hidden" name="diyid" value="1">
+                                    <input type="hidden" name="do" value="2">
+
+                                        <div>
+                                            <input type="text" name="xs" id="xs" placeholder="姓氏">
+                                            <input type="text" name="name" id="name" placeholder="名字">
+                                            <input type="text" name="email" id="email" placeholder="邮箱" onblur="getVal(this.id)">
+                                        </div>
+                                        <div>
+                                            <textarea name="text" id="text" rows="" cols=""></textarea><br>
+                                            <input name="time" value="2018-5-24" type="hidden" id="time" style="width:250px" class="intxt">
+                                            <input type="hidden" name="dede_fields" value="xs,textchar;name,textchar;email,textchar;text,multitext;time,datetime">
+            <input type="hidden" name="dede_fieldshash" value="cc4f2164cef2145492cc09ab25f0f86c">
+                                            <input type="submit" value="发送">
+                                        </div>
+                                    </form>
+            -->
+        </div>
+    </div>
+</div>
+
+
+}

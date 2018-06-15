@@ -1,4 +1,4 @@
-@(message: String, computers: List[Computer], configThisFile: String)(implicit messages: Messages)
+@(message: String, aboutID: String, computers: List[Computer], configThisFile: String)(implicit messages: Messages)
 
 @import controllers.princegroup.routes
 @theModals = {
@@ -7,561 +7,59 @@
 
 @views.html.princegroup.main(title = message, modals = theModals) {
 
-<!-- content start -->
-<!--关于OJI-->
+@***************************
+***<!-- content start -->***
+***<!--关于OJI-->***
+****************************@
+
+
 <div class="thebox">
-    <!--左侧菜单-->
+    @*************
+    **<!--左侧菜单-->**
+    *****************@
     <div class="about-left">
         <div>
-            <a href="@routes.Application.about">关于王子</a>
+            <a href="@routes.Application.about()">关于王子</a>
             <ul class="about-chan">
-                <li class="li-act">发展历程</li><li>集团概况</li><li>组织架构</li><li>企业文化</li>
-                <li>核心优势</li>
+                <li @if(aboutID=="history"){class='lli-act'}><a href="@routes.Application.about("history")">发展历程</a></li>
+                <li @if(aboutID=="groupdata"){class='lli-act'}><a href="@routes.Application.about("groupdata")">集团概况</a></li>
+                <li @if(aboutID=="architecture"){class='lli-act'}><a href="@routes.Application.about("architecture")">组织架构</a></li>
+                <li @if(aboutID=="culture"){class='lli-act'}><a href="@routes.Application.about("culture")">企业文化</a></li>
+                <li @if(aboutID=="advantages"){class='lli-act'}><a href="@routes.Application.about("advantages")">核心优势</a></li>
             </ul>
         </div>
         <div><a href="@routes.Application.brands("")">旗下品牌</a></div>
         <div><a href="@routes.Application.csr">社会责任</a></div>
         <div><a href="@routes.Application.contact">联系我们</a></div>
     </div>
-    <!--右侧盒子-->
+    @***************
+    **<!--右侧盒子-->**
+    ****************@
     <div class="about-right">
-        <!--发展历程-->
-        <div class="about-right-box" style="display: block;">
-            <div class="about-box-til">
-                <div><a href="@routes.Application.">首页 </a><a href="@routes.Application.about">关于王子</a> /  <span>发展历程</span></div>
-                <div>发展历程</div>
-            </div>
 
-            <div class="about-fzlc">
-                <div>
-                    <div>
-                        <p>
-                            1914</p>
-                        五羊前身先施创立，成为中国首批化妆品生产企业。</div>
-                    <div>
-                        .<br>
-                        .<br>
-                        .</div>
-                    <div>
-                        <p>
-                            2008</p>
-                        五羊公司成立，推出第一款母婴用品，赞誉不断。</div>
-                    <div class="fzlc-text">
-                        <p>
-                            2012</p>
-                        五羊荣获年度孕婴童行业评选活动“最受消费者关注新品牌”<br>
-                        成为广东省孕婴童用品协会第一届理事会理事单位</div>
-                    <div class="fzlc-text">
-                        <p>
-                            2014</p>
-                        荣获“广东省守合同重信用”公司<br>
-                        五羊母婴全面打开与各大电商平台的战略合作</div>
-                    <div class="fzlc-text">
-                        <p>
-                            2015</p>
-                        五羊fbibi纸尿裤火热上市，席卷各大电商平台<br>
-                        五羊被中国权威数据机构(CSISC)评为“民族婴童品牌最佳口碑”品牌<br>
-                        五羊荣获母婴奥斯卡“金树奖”<br>
-                        五羊荣获广东省孕婴童用品协会五羊珍珠“创新优秀品牌奖”</div>
-                    <div class="fzlc-text">
-                        <p>
-                            2016</p>
-                        完成对美国纸尿裤品牌bibi的收购<br>
-                        电商渠道全面爆发，销量实现7倍跨越式增长<br>
-                        荣获国际电商营销峰会“品质信赖奖”<br>
-                        荣获中国母婴企业家领袖峰会暨樱桃大赏“bibi纸尿裤年度最具潜力产品奖”</div>
-                    <div class="fzlc-text">
-                        <p>
-                            2017</p>
-                        成为广东省医药企业管理协会副会长单位<br>
-                        荣获广东省孕婴用品协会“创新新品奖”<br>
-                        纸尿裤荣获母婴类年度品质大奖金麦奖<br>
-                        成功完成产品升级，实现企业战略调整，集团更名为OJI王子集团</div>
-                </div>
-            </div>
+        @aboutID match {
+        case "advantages" => {
+        @views.html.princegroup.abouts.advantages()
+        }
+        case "architecture" => {
+        @views.html.princegroup.abouts.architecture()
+        }
+        case "culture" => {
+        @views.html.princegroup.abouts.culture()
+        }
+        case "groupdata" => {
+        @views.html.princegroup.abouts.groupdata()
+        }
+        case _ => {
+        @views.html.princegroup.abouts.history()
+        }
 
-
-        </div><div class="about-right-box" style="display: none;">
-        <div class="about-box-til">
-            <div><a href="@routes.Application.">首页 </a><a href="@routes.Application.about">关于王子</a> /  <span>集团概况</span></div>
-            <div>集团概况</div>
-        </div>
-
-        <div class="about-jtgk">
-            <div>2017</div>
-            <div class="jtgk-box">
-                <div>
-                    <div>
-                        <div>我们的历史</div>
-                        <div><span>100+</span> <br>(103年)</div>
-                        <div>源自1914年，超过百年历史。</div>
-                    </div>
-                    <div>使用者年龄分布 2017</div>
-                    <div><img src="/img/1-1P3261SH9645.png"></div>
-                </div>
-                <div>
-                    <div>
-                        <div>你们的认可</div>
-                        <div><span>10,000,000</span> <br>(1000万家庭)</div>
-                        <div>千万家庭口碑实证。</div>
-                    </div>
-                    <div>消费者地区分布  2017</div>
-                    <div><img src="/img/1-1P3261S640604.png"></div>
-                </div>
-            </div>
-            <div class="jtgk-box">
-                <div>
-                    <div>
-                        <div>市场</div>
-                        <div><span>3,000+</span> <br>(3,000多家门店)</div>
-                        <div>全国大型门店畅销。</div>
-                    </div>
-                    <div>国内市场布局  2017</div>
-                    <div><img src="/img/1-1P3261SG1516.png"></div>
-                </div>
-                <div>
-                    <div>
-                        <div>原材料</div>
-                        <div><span>10</span> <br>(10种进口材料)</div>
-                        <div>全球精选优质天然原材料。</div>
-                    </div>
-                    <div>精全球精选优质天然原材料。</div>
-                    <div><img src="/img/1-1P3261SK0395.png"></div>
-                </div>
-            </div>
-            <div class="jtgk-box">
-                <div>
-                    <div>
-                        <div>团队</div>
-                        <div><span>3</span> <br>(美国, 日本, 中国)</div>
-                        <div>分布全球顶尖科研创新团队。</div>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <div>质控</div>
-                        <div><span>5+</span> <br>(超过5项认证)</div>
-                        <div>国际权威机构安全质检认证。</div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div>全球科技实力</div>
-                <img src="/img/1-1P3261SQS31.png">
-            </div>
-        </div>
-
-    </div><div class="about-right-box" style="display: none;">
-        <div class="about-box-til">
-            <div><a href="@routes.Application.">首页 </a><a href="@routes.Application.about">关于王子</a> /  <span>组织架构</span></div>
-            <div>组织架构</div>
-        </div>
-
-        <div class="about-zuj">
-            <div>
-                OJI是一家拥有国际视野并领先世界的纸尿裤制造商，已专注纸尿裤研发生产10年。旗下拥有百年母婴品牌五羊，美国高端婴儿 纸尿裤品牌bibi，以及专业成人纸尿裤品牌湃迪。OJI集结全球顶尖科研团队，甄选优质的原材料，配备严苛的质控系统，致力 于为全球家庭提供安全、优质、可靠、全面的产品及服务</div>
-            <div>
-                <img src="/img/1-1P3261T243b5.png"></div>
-        </div>
-
-    </div><div class="about-right-box" style="display: none;">
-        <div class="about-box-til">
-            <div><a href="@routes.Application.">首页 </a><a href="@routes.Application.about">关于王子</a> /  <span>企业文化</span></div>
-            <div>企业文化</div>
-        </div>
-
-        <span class="news-title">我们的战略与使命</span><br>
-        <br>
-        <hr style="border-bottom:1px solid #0C3770">
-        <br>
-        <style type="text/css">
-#zuz {
-
-;	margin-top:44px;
-}
-
-#cycle1
-{
-	border-radius: 100%;
-    background: #f2f2f2;
-；	border: 15px solid #fff;
-    padding: 12px;
-    width: 199px;
-    height: 199px;
-	position:absolute;
-	float:left;
-	margin-top:21px;
-	margin-left:89px;
-
-}
-#cycle1:hover
-{
-	border-radius: 100%;
-	background: #fff;
-    border: 15px solid #063d78;
-    padding: 12px;
-    width: 229px;
-    height: 229px;
-
-	position:absolute;
-	float:left;
-	margin-top:6px;
-	margin-left:74px;
-
-    }
-
-
-#cycle2
-{
-	border-radius: 100%;
-    background: #f2f2f2;
-；	border: 15px solid #fff;
-    padding: 12px;
-    width: 224px;
-    height: 224px;
-	position:absolute;
-	float:left;
-	margin-top:62px;
-	margin-left:342px;
-}
-
-#cycle2:hover
-{
-	border-radius: 100%;
-	background: #fff;
-    border: 15px solid #063d78;
-    padding: 12px;
-    width: 254px;
-    height: 254px;
-    position:absolute;
-	float:left;
-	margin-top:47px;
-	margin-left:327px;
-    }
-
-
-	#cycle3
-{
-	border-radius: 100%;
-    background: #f2f2f2;
-；	border: 15px solid #fff;
-    padding: 12px;
-    width: 204px;
-    height: 204px;
-	position:absolute;
-	float:left;
-	margin-top:18px;
-	margin-left:590px;
-}
-
-#cycle3:hover
-{
-	border-radius: 100%;
-	background: #fff;
-    border: 15px solid #063d78;
-    padding: 12px;
-    width: 234px;
-    height: 234px;
-    position:absolute;
-	float:left;
-	margin-top:3px;
-	margin-left:575px;
-    }
-
-
-	#cycle4
-{
-	border-radius: 100%;
-    background: #f2f2f2;
-；	border: 15px solid #fff;
-    padding: 12px;
-    width: 230px;
-    height: 230px;
-	position:absolute;
-	float:left;
-	margin-top:285px;
-	margin-left:226px;
-}
-
-#cycle4:hover
-{
-	border-radius: 100%;
-	background: #fff;
-    border: 15px solid #063d78;
-    padding: 12px;
-    width: 260px;
-    height: 260px;
-;	position:absolute;
-    float:left;
-	margin-top:270px;
-	margin-left:211px;
-    }
-
-
-	#cycle5
-{
-	border-radius: 100%;
-    background: #f2f2f2;
-；	border: 15px solid #fff;
-    padding: 12px;
-    width: 222px;
-    height: 222px;
-;	position:absolute;
-	float:left;
-	margin-top:235px;
-	margin-left:510px;
-}
-
-#cycle5:hover
-{
-	border-radius: 100%;
-	background: #fff;
-    border: 15px solid #063d78;
-    padding: 12px;
-    width: 252px;
-    height: 252px;
-	position:absolute;
-    float:left;
-	margin-top:220px;
-	margin-left:495px;
-
-   }
-
-#cycle1:hover	#fontcolor {
-color:#e4007f;
-}
-#cycle2:hover	#fontcolor {
-color:#e4007f;
-}
-#cycle3:hover	#fontcolor {
-color:#e4007f;
-}
-#cycle4:hover	#fontcolor {
-color:#e4007f;
-}
-#cycle5:hover	#fontcolor {
-color:#e4007f;
-}
-#pheight {
-height:1px;
-}</style>
-        <div style="width:800px;height:550px">
-            <div id="cycle1">
-                <div style="margin-top:30px;">
-                    <center id="zuz">
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">我们的愿景</span></p>
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">.</span></p>
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">.</span></p>
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">.</span></p>
-                        <br>
-                        <span style="font-size:14px;">成为全球领先的卫生用品公司</span></center>
-                </div>
-            </div>
-            <div id="cycle2">
-                <div id="p1font">
-                    <center id="zuz">
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">我们的使命</span></p>
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">.</span></p>
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">.</span></p>
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">.</span></p>
-                        <br>
-                        <span style="font-size:14px;">让人们拥有高品质的卫生用品，</span><br>
-                        <span style="font-size:14px;">呵护生活每一天</span></center>
-                </div>
-            </div>
-            <div id="cycle3">
-                <div id="p1font">
-                    <center id="zuz">
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">我们的价值观</span></p>
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">.</span></p>
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">.</span></p>
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">.</span></p>
-                        <br>
-                        <span style="font-size:14px;">诚信，务实，共赢</span></center>
-                </div>
-            </div>
-            <div id="cycle4">
-                <div id="p1font">
-                    <center id="zuz">
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">我们的发展战略</span></p>
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">.</span></p>
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">.</span></p>
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">.</span></p>
-                        <br>
-                        <span style="font-size:14px;">创新领先</span><br>
-                        <span style="font-size:14px;">增长领先</span><br>
-                        <span style="font-size:14px;">品质领先</span></center>
-                </div>
-            </div>
-            <div id="cycle5">
-                <div id="p1font">
-                    <center id="zuz">
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">我们的经营方针</span></p>
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">.</span></p>
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">.</span></p>
-                        <p id="pheight">
-                            <span id="fontcolor" style="font-size:22px;font-weight:bold;">.</span></p>
-                        <br>
-                        <span style="font-size:14px;color:black;">研发先行，品牌驱动</span><br>
-                        <span style="font-size:14px;">渠道创新，供应保障</span></center>
-                </div>
-            </div>
-        </div>
-        <br>
-        <br>
-        <span class="news-title">我们的精神</span><br>
-        <br>
-        <hr style="border-bottom:1px solid #0C3770">
-        <div style="text-align: center;">
-            <br>
-            <strong><span class="news-title">拼搏进取、勤劳节俭、艰苦奋斗、敢为人先、敢于超越；<br>
-	叫孝仁义、低调谦虚、求真务实、永不言败、永远创业。</span></strong></div>
-        <br>
-        <br>
-        <br>
-        <span class="news-title">我们坚信的真理</span><br>
-        <br>
-        <hr style="border-bottom:1px solid #0C3770">
-        <br>
-        <img alt="" src="/img/1-1P523120156163.png" style="width: 898px; height: 479px;"><br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-
-    </div>
-        <!--核心优势-->
-        <div class="about-right-box" style="display: none;">
-            <div class="about-box-til">
-                <div><a href="@routes.Application.">首页  </a><a href="@routes.Application.about">关于王子</a> / <span>核心优势</span></div>
-                <div>核心优势</div>
-            </div>
-            <div class="about-hexin">
-                <div><div class="hexin-til">
-                    三体系认证企业
-                </div>
-                    <div class="hexin-box-o">
-                        <div><img src="/img/1-1P32G00Z11b.png"></div>
-                        <div>
-                            <div>
-                                <span>质量体系</span><br>
-                                本企业通过 <strong>ISO 9001</strong> 认证，严苛品控保证产品优质安全。
-                            </div><div>
-                            <span>环境体系</span><br>
-                            本企业通过 <strong>ISO 14001</strong> 认证，在环境管理方面达到了国际水平。
-                        </div><div>
-                            <span>安全体系</span><br>
-                            本企业通过 <strong>ISO 18001</strong> 认证，拥有完善健全的安全生产体系。
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="hexin-til">
-                        世界500强优质原材料
-                    </div>
-                    <ul>
-                        <li>
-                            <img src="/img/1-1P32G044250-L.png">
-                            <div>
-                                <span>德国巴斯夫</span><br>
-                                全球著名的化工公司<br>
-                                无纺布面层供应商
-                            </div>
-                        </li><li>
-                        <img src="/img/1-1P32G044560-L.png">
-                        <div>
-                            <span>美国3M</span><br>
-                            世界著名跨国集团<br>
-                            搭扣供应商
-                        </div>
-                    </li><li>
-                        <img src="/img/1-1P32G045220-L.png">
-                        <div>
-                            <span>日本住友</span><br>
-                            400多年历史<br>
-                            SAP高分子提供商
-                        </div>
-                    </li><li>
-                        <img src="/img/1-1P32G045480-L.png">
-                        <div>
-                            <span>美国莱卡</span><br>
-                            全球著名的化工公司<br>
-                            无纺布面层供应商
-                        </div>
-                    </li><li>
-                        <img src="/img/1-1P32G046130-L.png">
-                        <div>
-                            <span>美国致优</span><br>
-                            全球领先的医用及卫生用<br>
-                            新型材料领军企业
-                        </div>
-                    </li><li>
-                        <img src="/img/1-1P32G046390-L.png">
-                        <div>
-                            <span>法国波士胶</span><br>
-                            全球著名的粘合剂生产商之一<br>
-                            胶水供应商
-                        </div>
-                    </li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="hexin-til">
-                        革命性创新技术
-                    </div>
-                    <div class="hexin-box-th">
-                        <div>
-                            <img src="/img/1-1P32G103150-L.png">
-                            <div>
-                                三核锁水芯，黄金配比三种进口吸水珠，<br>
-                                薄至0.3mm。
-                            </div>
-                        </div><div>
-                        <img src="/img/1-1P32G103400-L.png">
-                        <div>
-                            太空舱式芯体，分舱式结构。
-                        </div>
-                    </div><div>
-                        <img src="/img/1-1P32G103570-L.png">
-                        <div>
-                            人体工学剪裁，按照宝宝的身体线条进行剪裁，裤体时刻贴合<br>
-                            宝宝的每个动作，私人定制版360度柔软贴身
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--组织架构-->
+        }
 
 
 
 
     </div>
 </div>
-<!-- content end -->
-
-
 
 }

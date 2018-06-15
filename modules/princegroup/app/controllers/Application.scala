@@ -15,9 +15,9 @@ class Application @Inject() (val messagesApi: MessagesApi, conf: Configuration) 
     Ok(views.html.princegroup.index(Messages("princegroup.subtitle"), computers, configThisFile = conf.underlying.as[String]("this.file")))
   }
 
-  def about = Action { implicit request =>
+  def about(ID: String) = Action { implicit request =>
     val computers = PrincegroupWeb.list
-    Ok(views.html.princegroup.about(Messages("princegroup.subtitle"), computers, configThisFile = conf.underlying.as[String]("this.file")))
+    Ok(views.html.princegroup.about(Messages("princegroup.subtitle"), ID, computers, configThisFile = conf.underlying.as[String]("this.file")))
   }
 
   def brands(ID: String) = Action { implicit request =>

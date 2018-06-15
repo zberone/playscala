@@ -36,7 +36,7 @@ a:hover{
 .nav-top>div>span:nth-of-type(2){
 	margin-left: 25px;
 }
-.nav-top>div>span:nth-of-type(3){
+.nav-top>div>span:nth-of-type(3)>a{
 	margin-left: 25px;
 	color: #E62E8B;
 }
@@ -73,7 +73,7 @@ a:hover{
 }
 .thebig-o{
 	height: 100%;
-	/* background-image: url(/static/images/big-img01.png); */
+	/* background-image: url(/img/big-img01.png); */
 	 background-repeat: no-repeat;
 	background-size: cover !important;
 }
@@ -153,7 +153,7 @@ a:hover{
 /*首页宽屏区域2*/
 .thebig-t{
 	height:706px;
-	background-image: url(/static/images/big-img02.jpg);
+	background-image: url(/img/big-img02.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -224,7 +224,7 @@ a:hover{
 /*首页宽屏区域3*/
 .thebig-th{
 	height:705px;
-	background-image: url(/static/images/big-img03.jpg);
+	background-image: url(/img/big-img03.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -257,7 +257,7 @@ a:hover{
 /*首页宽屏区域4*/
 .thebig-f{
 	height:705px;
-	background-image: url(/static/images/big-img04.jpg);
+	background-image: url(/img/big-img04.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -432,7 +432,7 @@ footer>div>div:nth-of-type(2)>div{
 }
 
 .about-fzlc{
-	background: url(/static/images/about-bj.jpg) center center no-repeat #F4F5F5;
+	background: url(/img/about-bj.jpg) center center no-repeat #F4F5F5;
 	width: 100%;
 	height: 1174px;
 	position: relative;

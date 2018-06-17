@@ -9,12 +9,12 @@
 @views.html.princegroup.main(title = message, modals = theModals) {
 
     <!--旗下品牌-->
-    <div class="thebox">
+    <div class="nav-box">
         <!--左侧菜单-->
-        <div class="about-left">
+        <div class="left-menus">
             <div><a href="@routes.Application.about()">@Messages("princegroup.aboutoji")</a></div>
             <div id="navi">
-                <a href="@routes.Application.brands()">>@Messages("princegroup.brands")</a>
+                <a href="@routes.Application.brands()">@Messages("princegroup.brands")</a>
                 <ul class="pro-act">
 
                     <li @if(brandID=="fiveram"){class='lli-act'} > <a href="@routes.Application.brands("fiveram")">五羊</a></li>
@@ -28,7 +28,7 @@
         </div>
         <!--右侧盒子-->
         <!--五羊-->
-        <div class="about-right">
+        <div class="content-box">
 
         @brandID match {
             case "fiveram" => {

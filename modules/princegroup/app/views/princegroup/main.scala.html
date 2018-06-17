@@ -16,115 +16,29 @@
 		@styles
 	</head>
 	<body>
-
-
-<!--状态栏-->
-<div class="nav-top">
-    <div class="thebox">
-                <span class="dio">
-                  <a href="/"><img src="">
-                    <div class="xiala"><img src=""></div>
-                    </a>
-                    <a href="https://weibo.com/"><img src=""></a>
-                    <a href="mailto:info@@oji.com"><img src=""></a>
-                </span>
-        <span>400－800－2163</span>
-        <span>
-        @messages.lang.code match {
-		case "zh-CN" => {
-		<a class="" href="@routes.Application.selectLang("en")">EN</a><br />
-				}
-		case _ => {
-		<a class="" href="@routes.Application.selectLang("zh-CN")">CN</a>
-		}
-		}
-		</span>
-    </div>
-</div>
-<div class="thebox">
-    <nav class="navbar navbar-default" role="navigation">
-        <div>
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-navbar-collapse" aria-expanded="false">
-                    <span class="sr-only">ChangeNav</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="./"><img src="@routes.Assets.img("1-1P52410420K47.png")"></a>
-            </div>
-            <div class="navbar-collapse collapse" id="example-navbar-collapse" aria-expanded="false" style="height: 120px;">
-                <ul class="nav navbar-nav">
-                    <li><a href="@routes.Application.about()">@Messages("princegroup.aboutoji")</a></li>
-                   	<li><a href="@routes.Application.brands()">@Messages("princegroup.brands")</a></li>
-                   	<li><a href="@routes.Application.csr">@Messages("princegroup.csr")</a></li>
-                   	<li><a href="@routes.Application.contact">@Messages("princegroup.contact")</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
-
-
-
+<!---  header start -->
+			@header("")
+			<!--- header-nav end --->
+			<!--- content start --->
 			@content
-
-
-
-@*****
-**底部**
-***@
-<footer>
-
-            <div class="thebox">
-
-                <div>
-                    Copyright © Prince 2018 All rights reserved. <a href="http://www.miitbeian.gov.cn/">粤ICP备17093074号-6</a><br>
-                    广东王子大健康有限公司 广州市天河区珠江新城兴国路21号广物中心6楼<br>
-                    电话：020 3828 4257<br>
-                    邮箱：<a href="#">info@@princegroup.com.cn</a>
-                </div>
-                <div>
-
-                    <div id="id" class="id">
-                        <a href="https://weibo.com/"><img src="@routes.Assets.img("bottom-icon01.png")"></a>
-                        <a href="./" class="uma">
-                            <img src="@routes.Assets.img("bottom-icon02.png")">
-                            <div class="mai">
-                                <span></span>
-                              <img src="@routes.Assets.img("1-1P502115522A6.png")">
-                            </div>
-                        </a>
-                        <a href="mailto:info@@oji.com"><img src="@routes.Assets.img("bottom-icon03.png")"></a>
-                    </div>
-                    <div>
-                        <ul>
-
-                    <li><a href="@routes.Application.about()">@Messages("princegroup.aboutoji")</a></li>
-                   	<li><a href="@routes.Application.brands()">@Messages("princegroup.brands")</a></li>
-                   	<li><a href="@routes.Application.csr">@Messages("princegroup.csr")</a></li>
-                   	<li><a href="@routes.Application.contact">@Messages("princegroup.contact")</a></li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </footer>
+			<!--- content end --->
+			<!--- footer start --->
+			@footer("")
+			<!--- footer end --->
 
     <script src="@routes.Assets.js("jquery-3.2.1.min.js")" type="text/javascript" charset="utf-8"></script>
 		<script src="@routes.Assets.js("bootstrap.min.js")" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
         $('.collapse').collapse();
-        $(".about-right-box").eq(0).css("display","block");
+        $(".content-box-box").eq(0).css("display","block");
         var mm = $(".about-chan>li");
         //切换选项卡
         function Aboutact(n){
             $(".about-chan>li").eq(n).click(function(){
                 $(".about-chan>li").removeAttr("class");
                 $(".about-chan>li").eq(n).attr('class',"li-act");
-                $(".about-right-box").css("display","none");
-                $(".about-right-box").eq(n).css("display","block");
+                $(".content-box-box").css("display","none");
+                $(".content-box-box").eq(n).css("display","block");
             })
         }
         for(var i=0;i<mm.length;i++){

@@ -13,11 +13,11 @@
 ****************************@
 
 
-<div class="thebox">
+<div class="nav-box">
     @*************
     **<!--左侧菜单-->**
     *****************@
-    <div class="about-left">
+    <div class="left-menus">
         <div>
             <a href="@routes.Application.about()">@Messages("princegroup.aboutoji")</a>
             <ul class="about-chan">
@@ -35,7 +35,7 @@
     @***************
     **<!--右侧盒子-->**
     ****************@
-    <div class="about-right">
+    <div class="content-box">
 
         @aboutID match {
         case "advantages" => {

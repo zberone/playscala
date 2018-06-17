@@ -1,0 +1,61 @@
+@(message: String)(implicit messages: Messages)
+@import controllers.princegroup.routes
+@defining(play.core.PlayVersion.current) { version =>
+
+@*****
+**header**
+***@
+<!--状态栏-->
+<div class="nav-top">
+    <div class="nav-box">
+        <span >
+            <a href="https://weibo.com/"><img src="@routes.Assets.img("top-icon02.png")"></a>
+            <a href="" class="navbar-popup">
+                <img src="@routes.Assets.img("top-icon01.png")">
+                <div class="navbar-popup-out">
+                    <span></span>
+                    <img src="@routes.Assets.img("1-1P502115522A6.png")">
+                </div>
+            </a>
+            <a href="mailto:info@@oji.com"><img src="@routes.Assets.img("top-icon03.png")"></a>
+        </span>
+        <span>400－800－2163</span>
+        <span>
+        @messages.lang.code match {
+		case "zh-CN" => {
+		<a class="" href="@routes.Application.selectLang("en")">EN</a><br />
+				}
+		case _ => {
+		<a class="" href="@routes.Application.selectLang("zh-CN")">CN</a>
+            }
+		}
+		</span>
+    </div>
+</div>
+<div class="nav-box">
+    <nav class="navbar navbar-default" role="navigation">
+        <div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">ChangeNav</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./"><img src="@routes.Assets.img("1-1P52410420K47.png")"></a>
+            </div>
+            <div class="navbar-collapse collapse" id="example-navbar-collapse" aria-expanded="false" style="height: 120px;">
+                <ul class="nav navbar-nav">
+                    <li><a href="@routes.Application.about()">@Messages("princegroup.aboutoji")</a></li>
+                    <li><a href="@routes.Application.brands()">@Messages("princegroup.brands")</a></li>
+                    <li><a href="@routes.Application.csr">@Messages("princegroup.csr")</a></li>
+                    <li><a href="@routes.Application.contact">@Messages("princegroup.contact")</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+}
+

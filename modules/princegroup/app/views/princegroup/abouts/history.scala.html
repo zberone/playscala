@@ -15,11 +15,13 @@
     @messages.lang.code match {
     case "zh-CN" => {
     <!-- Chinese -->
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.css("history-cn.css")">
     @historyCn("")
     <!-- Chinese end-->
     }
     case _ => {
     <!-- Other -->
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.css("history-en.css")">
     @historyEn("")
     <!-- Other end-->
     }
@@ -27,5 +29,8 @@
 
 
 </div>
-
+@******改写标题****@
+<script>
+document.title = "@Messages("princegroup.about.history")"+"_"+ "@Messages("princegroup.subtitle")";
+</script>
 }

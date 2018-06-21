@@ -14,13 +14,12 @@
         <div class="left-menus">
             <div><a href="@routes.Application.about()">@Messages("princegroup.aboutoji")</a></div>
             <div id="navi">
-                <a href="@routes.Application.brands()">@Messages("princegroup.brands")</a>
+                <a href="@routes.Application.brands()"><span>@Messages("princegroup.brands")</span></a>
                 <ul class="pro-act">
 
-                    <li @if(brandID=="fiveram"){class='lli-act'} > <a href="@routes.Application.brands("fiveram")">五羊</a></li>
-                    <li @if(brandID=="bibi"){class='lli-act'}> <a href="@routes.Application.brands("bibi")">bibi</a></li>
-                    <li @if(brandID=="pid"){class='lli-act'}> <a href="@routes.Application.brands("pid")">湃迪</a></li>
-
+                    <a href="@routes.Application.brands("fiveram")"> <li @if(brandID=="fiveram"){class='lli-act'} >@Messages("princegroup.brands.fiveram")</li></a>
+                    <a href="@routes.Application.brands("bibi")"><li @if(brandID=="bibi"){class='lli-act'}>@Messages("princegroup.brands.bibi")</li></a>
+                    <a href="@routes.Application.brands("pid")"><li @if(brandID=="pid"){class='lli-act'}>@Messages("princegroup.brands.pid")</li></a>
                 </ul>
             </div>
             <div><a href="@routes.Application.csr">@Messages("princegroup.csr")</a></div>

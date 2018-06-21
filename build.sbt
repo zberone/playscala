@@ -1,3 +1,5 @@
+name := "playweb"
+version := "1.0"
 Common.appSettings(messagesFilesFrom = Seq("common", "admin", "web", "princegroup"))
 
 

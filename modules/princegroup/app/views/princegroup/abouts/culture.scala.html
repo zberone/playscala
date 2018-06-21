@@ -6,17 +6,17 @@
     <div class="about-box-til">
         <div><a href="@routes.Application.">@Messages("princegroup.home") </a>
             <a href="@routes.Application.about()">@Messages("princegroup.aboutoji")</a> /  <span>@Messages("princegroup.about.culture")</span></div>
-        <div>@Messages("princegroup.about.culture")</div>
-    </div>
-    <div class="about-core">
+
         @messages.lang.code match {
         case "zh-CN" => {
         <!-- Chinese -->
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.css("culture-cn.css")">
         @cultureCn("")
         <!-- Chinese end-->
         }
         case _ => {
         <!-- Other -->
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.css("culture-en.css")">
         @cultureEn("")
         <!-- Other end-->
         }

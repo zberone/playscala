@@ -1,5 +1,5 @@
 @(request: RequestHeader, error: play.api.UsefulException)(implicit messages: Messages)
-@views.html.fiveram.main("WEB Oops, an error occurred") {
+@views.html.fiveramViews.main("WEB Oops, an error occurred") {
 	<h1>WEB @Messages("error.unknown.title")</h1>
 	<p>@Messages("error.unknown.text", error.id)</p>
 }

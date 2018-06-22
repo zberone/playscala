@@ -1,16 +1,17 @@
-@import controllers.fiveram.routes
-
+@import controllers.fiveramSite.routes
+@(message: String)(implicit messages: Messages)
 @defining(play.core.PlayVersion.current) { version =>
 <!-- 底部 -->
 <div id="fd">
-    <img src="@routes.Assets.public("/fiveram/images/fd-logo.png")" alt="">
-    <h3>五羊母婴集团</h3>
+    <!-- <img src="images/fd-logo.png" alt="" >  -->
+    <img src="@routes.Assets.img("logo_fb.png")" alt="" width="180px">
+    <h3>五羊集团</h3>
     <!-- 版权 -->
     <div class="weblink">
         合作伙伴: <!--</li>
              <li> --><!-- <a href="http://www.beibei.com" target="_blank" title="贝贝网">贝贝网</a> -->
 
-        <!-- <a href="http://www.mama.cn" target="_blank" title="妈妈网">妈妈网</a> -->
+        <a href="http://www.bibigroup.com" target="_blank" title="妈妈网">bibi官网</a>
 
         <a href="http://www.babytree.com/" target="_blank" title="宝宝树">宝宝树</a>
 
@@ -43,7 +44,7 @@
         <a href="http://www.fiveram.com.cn/" target="_blank" title="五羊母婴">五羊母婴</a>
 
     </div>
-    <div class="copy">Copyright © 2008-2016 Fiverams Baby Products   Record Number：<a  href="http://www.miitbeian.gov.cn" ><font color="white" >粤ICP备16077948号-1</font></a></div>
+    <div class="copy">Copyright © 2008-2018 Fiverams Baby Products   Record Number：<a  href="http://www.miitbeian.gov.cn" ><font color="white" >粤ICP备16077948号-1</font></a></div>
     <!-- 版权 -->
 </div>
 <!-- 底部 -->
@@ -57,7 +58,7 @@
         <li class="li2">
             <a href="" class="a2">
                 fiveram<br/>
-                &#64fiveam.com.cn
+                @@fiveam.com.cn
             </a>
         </li>
         <li class="li3">
@@ -65,7 +66,7 @@
         </li>
         <li class="li4"><a href="">扫描二维码</a></li>
         <li class="li5">
-            <img src="@routes.Assets.public("/fiveram/images/weixin.jpg")" alt="">
+            <img src="@routes.Assets.img("weixin.jpg")" alt="">
         </li>
     </ul>
 </div>
@@ -80,8 +81,8 @@
     </ul>
 </div>
 <!-- 右侧 -->
-<link rel="stylesheet" href="@routes.Assets.public("/stylesheets/css/animate.css")">
-<script src="@routes.Assets.public("/javascripts/js/wow.min.js")"></script>
+<link rel="stylesheet" href="@routes.Assets.public("stylesheets/css/animate.css")">
+<script src="@routes.Assets.public("javascripts/js/wow.min.js")"></script>
 <script>
         //首页
         $(".index li").hover(function(){

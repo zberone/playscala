@@ -223,7 +223,7 @@ body,html {
 }
 
 img {
-
+    max-width: 100%;
     vertical-align: bottom;
     border: 0;
 }
@@ -5576,7 +5576,7 @@ video.featured {
     height: 21px;
     margin-right: 5px;
     vertical-align: middle;
-    background: url(/assets/fiveram/images/lp1-2.png) no-repeat;
+    background: url(../images/lp1-2.png) no-repeat;
 }
 
 .check_red {
@@ -5584,11 +5584,11 @@ video.featured {
 }
 
 .fullcircle .check_red {
-    background-image: url(/assets/fiveram/images/lp1.png);
+    background-image: url(../images/lp1.png);
 }
 
 .check_green .check_green{
-    background-image: url(/assets/fiveram/images/lp2.png);
+    background-image: url(../images/lp2.png);
 }
 
 .check_green {
@@ -5596,11 +5596,11 @@ video.featured {
 }
 
 .fullcircle .check_green {
-    background-image: url(/assets/fiveram/images/lp2-2.png);
+    background-image: url(../images/lp2-2.png);
 }
 
 .check_blue .check_blue{
-    background-image: url(/assets/fiveram/images/lp3.png);
+    background-image: url(../images/lp3.png);
 }
 
 .check_blue {
@@ -5608,7 +5608,7 @@ video.featured {
 }
 
 .fullcircle .check_blue {
-    background-image: url(/assets/fiveram/images/lp3-2.png);
+    background-image: url(../images/lp3-2.png);
 }
 
 .check_lila {
@@ -5651,23 +5651,23 @@ video.featured {
     animation-iteration-count: infinite;
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
-    background: url(/assets/fiveram/images/lp1-3.png) no-repeat center !important;
+    background: url(../images/lp1-3.png) no-repeat center !important;
 }
 
 .pin.check_green{
-    background-image: url(/assets/fiveram/images/lp2-3.png) !important;
+    background-image: url(../images/lp2-3.png) !important;
 }
 
 .pin.check_yellow{
-    background-image: url(/assets/fiveram/images/lp3-3.png) !important;
+    background-image: url(../images/lp3-3.png) !important;
 }
 
 .pin.check_green.clickedpin{
-    background-image: url(/assets/fiveram/images/lp2-4.png) !important;
+    background-image: url(../images/lp2-4.png) !important;
 }
 
 .pin.check_yellow.clickedpin{
-    background-image: url(/assets/fiveram/images/lp3-4.png) !important;
+    background-image: url(../images/lp3-4.png) !important;
 }
 
 .bigger_circle_n {
@@ -5853,7 +5853,7 @@ video.featured {
     z-index: 2;
     -webkit-animation: 0;
     animation: 0;
-    background: url(/assets/fiveram/images/lp1-4.png) no-repeat center !important;
+    background: url(../images/lp1-4.png) no-repeat center !important;
 }
 
 .pin_inner {

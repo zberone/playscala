@@ -1,19 +1,16 @@
-@*
-* This template takes a single argument, a String containing a
-@* content Template File *@
+@(message: String)(implicit messages: Messages)
+@import controllers.fiveramSite.routes
 
-@import controllers.fiveram.routes
+@theModals = {
 
-@(message: String)
+}
 
-@main("五羊 | 职业发展"){
+@views.html.fiveramViews.main(title = "五羊 | 职业发展", modals = theModals) {
+
 <!-- 主体内容 -->
-<div id="bd" >
-    <div class="careers"><img class="bg-img" src="@routes.Assets.public("/fiveram/images/bg2.jpg")"></img></div>
-
+<div id="bd">
     <!-- 职业发展 -->
-    <div class="development">
-
+    <div class="development" style="background-image:url(/img/bg2.jpg);">
         <div class="txt wow fadeInUp">
             <div>
                 <h4>因你而不同</h4>
@@ -22,26 +19,27 @@
                 <a href="http://jobs.51job.com/all/co2632896.html" target="_blank" class=" wow fadeInUp" data-wow-delay=".5s">加入我们 ></a>
 
                 <ul>
-                    <li><img src="@routes.Assets.public("/fiveram/images/l-pic2.png")" alt=""></li>
-                    <li class="li2"><img src="@routes.Assets.public("/fiveram/images/l-pic1.png")" alt=""></li>
-                    <li class="li3"><img src="@routes.Assets.public("/fiveram/images/l-pic3.png")" alt=""></li>
+                    <li><img src="/img/l-pic2.png" alt=""></li>
+                    <li class="li2"><img src="/img/l-pic1.png" alt=""></li>
+                    <li class="li3"><img src="/img/l-pic3.png" alt=""></li>
                 </ul>
             </div>
         </div>
         <!-- 落叶 -->
         <div id="g-leaves">
             <div class="div div2">
-                <img src="@routes.Assets.public("/fiveram/images/ly1.png")" alt="" class="img1">
-                <img src="@routes.Assets.public("/fiveram/images/ly2.png")" alt="" class="img2">
-                <img src="@routes.Assets.public("/fiveram/images/ly3.png")" alt="" class="img3">
-                <img src="@routes.Assets.public("/fiveram/images/ly4.png")" alt="" class="img4">
-                <img src="@routes.Assets.public("/fiveram/images/ly5.png")" alt="" class="img5">
-                <img src="@routes.Assets.public("/fiveram/images/ly6.png")" alt="" class="img6">
-                <img src="@routes.Assets.public("/fiveram/images/ly7.png")" alt="" class="img7">
+                <img src="/img/ly1.png" alt="" class="img1">
+                <img src="/img/ly2.png" alt="" class="img2">
+                <img src="/img/ly3.png" alt="" class="img3">
+                <img src="/img/ly4.png" alt="" class="img4">
+                <img src="/img/ly5.png" alt="" class="img5">
+                <img src="/img/ly6.png" alt="" class="img6">
+                <img src="/img/ly7.png" alt="" class="img7">
             </div>
         </div>
         <!-- 落叶 -->
     </div>
+</div>
 <!-- 职业发展 -->
 </div>
 <!-- 主体内容 -->

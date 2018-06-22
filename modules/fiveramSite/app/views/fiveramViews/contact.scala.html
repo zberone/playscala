@@ -1,21 +1,22 @@
-@* content Template File *@
+@(message: String)(implicit messages: Messages)
+@import controllers.fiveramSite.routes
 
-@import controllers.fiveram.routes
+@theModals = {
 
-@(message: String)
+}
 
-@main("五羊 | 联系我们"){
+@views.html.fiveramViews.main(title = "五羊 | 联系我们", modals = theModals) {
 
 <!-- 主体内容 -->
 <div id="bd">
 	<!-- 联系我们 -->
 	<div class="contact-us">
 		<!-- 大图 -->
-		<img class="ban" src="@routes.Assets.public("/fiveram/images/bg1.jpg")"></img>
+		<div class="ban" style="background-image:url(/img/bg1.jpg);"></div>
 		<!-- 大图 -->
 
 		<div class="con wow fadeInUp">
-			<div class="img" ><img src="@routes.Assets.public("/fiveram/images/address1.png")"></img></div>
+			<div class="img" style="background-image:url(/img/address1_1.png);"></div>
 
 			<div class="txt">
 				<h3>集团总部</h3>
@@ -23,8 +24,8 @@
 				<h5>中国广州珠江新城兴国路21号中达广场</h5>
 				<p>Guangwu Zhongda Plaza, No.21, Xingguo Road,</br> Zhujiang New Town, Guangzhou, PRC</p>
 				<p>客服热线：020-28050926</p>
-				<!--p>E-mail:fiveram&#64fiveram.com.cn</p-->
-				<p>招商代理：陈先生(13316189736) <br>&emsp;&emsp;&emsp;&emsp;&emsp;覃先生(18688470825) </p>
+				<!--p>E-mail:fiveram@@fiveram.com.cn</p-->
+				<p>招商代理：王先生(18988930080) <br>&emsp;&emsp;&emsp;&emsp;&emsp;覃先生(18688470825) </p-->
 
 			</div>
 		</div>
@@ -32,6 +33,7 @@
 	<!-- 联系我们 -->
 </div>
 <!-- 主体内容 -->
+
 
 <!-- 落叶 -->
 <div id="g-leaves" class="g-leaves2">

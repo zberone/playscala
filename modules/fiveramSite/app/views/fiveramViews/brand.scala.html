@@ -1,12 +1,12 @@
-@*
-* This template takes a single argument, a String containing a
-@* content Template File *@
+@(message: String)(implicit messages: Messages)
+@import controllers.fiveramSite.routes
 
-@import controllers.fiveram.routes
+@theModals = {
 
-@(message: String)
+}
 
-@main("五羊 | 旗下品牌"){
+@views.html.fiveramViews.main(title = "五羊 | 旗下品牌", modals = theModals) {
+
 <!-- 主体内容 -->
 <div id="bd">
     <!-- 关于我们 -->

@@ -16,30 +16,28 @@ box-sizing: border-box;}
 }
 /* 通用模块 -------------------------------------------------- */
 /* 布局 */
-.wp{ margin-left:-436px; }
+.wp{ width:1000px; margin:0 auto;}
       
 /*******************************
     -------[=头部]-------
 ********************************/
-#bd{position: relative;background-color: #e5e5e3 }
+#bd{position: relative;}
 #hd.hd1{position: relative;}
-#hd{position: absolute;left:50%;top:0;z-index: 99;
-    padding-bottom: 13px;width: 100%;height:100px;}
-.logo{float: left;margin:40px 0 0 25px;}
+#hd{position: absolute;left:0;top:0;z-index: 99;
+    padding-bottom: 13px;width: 100%;}
+.logo{float: left;margin:43px 0 0 20px;}
 
-.hd-right{margin-right: 24px;}
-.hd-right .lan {float: right;margin:38px 70px;}
+.hd-right{float: right;margin-right: 24px;}
+.hd-right .lan {float: right;margin:10px 0 22px;}
 .hd-right .lan li{line-height: 27px;}
-.hd-right .lan li a{display: block;font-size: 18px;
+.hd-right .lan li a{display: block;font-size: 13px;
     color:#7c7c7c;}
 .hd-right .lan li a:hover,
-.hd-right .lan li.on a{color:#c61529;}
-.hd-right .hd-kefu{float:right;margin:10px 1px ;}
+.hd-right .lan li.on a{color:#00a1e1;}
 
-.hd-right .nav {float:left;margin:64px 0 0 25px;}
-.nav li{position: relative;float: left;margin-left: 30px;}
+.nav li{position: relative;float: left;margin-left: 28px;}
 .nav li .a1{position: relative;z-index: 9;color:#898989;
-    display: block;padding:0 1px 2px;font-size: 20px;overflow: hidden;}
+    display: block;padding:0 1px 2px;font-size: 18px;overflow: hidden;}
 .nav li .a1:hover{color:#34bdfe;}
 .nav li .a1:after{content:'';position: absolute;left:0;bottom:0;
     margin-left: -100%;width: 100%;height: 2px;background:#ffc259;
@@ -52,7 +50,7 @@ box-sizing: border-box;}
 .nav li.on .a1:after{margin-left: 0;}
 
 .nav li dl{position: absolute;left:0;top:33px;display: none;padding-top: 23px;
-    width: 100%;background:url(/assets/fiveram/images/l-bgf.png);text-align: center;}
+    width: 100%;background:url(/img/l-bgf.png);text-align: center;}
 .nav li dd{padding:14px 0;border-top: 1px solid #ced7e2;}
 .nav li dd.bt0{border-top: 0;}
 .nav li dd img{width: 61px;height: 61px;}
@@ -60,13 +58,16 @@ box-sizing: border-box;}
 
 
 /* 公用ban */
-.g-screen{position: absolute;}
+.g-screen{position: relative;}
+.g-ban .item{height: 1160px;
+    background-repeat: no-repeat;
+    background-position: center;}
 
 
 /* 底部 */
 
 #fd{padding: 48px 0;text-align: center;color:#fff;
-    background:#c61529 url(/assets/fiveram/images/fd-bg.png) no-repeat center 33%;}
+    background:#0032a0 url(/img/fd-bg.png) no-repeat center 33%;}
 #fd h3{padding-bottom:33px;font-size: 18px;}
 
 
@@ -145,17 +146,17 @@ box-sizing: border-box;}
 #g-right:after,
 .g-right-menu:after{content:'';position: absolute;left:-19px;
     top:50%;margin-top: -19px;width: 19px;height: 38px;
-    background: url(/assets/fiveram/images/a3.png) no-repeat left top;}
+    background: url(/img/a3.png) no-repeat left top;}
 #g-right li{border-top: 1px solid #7d7f88;
     border-bottom: 1px solid #585a66;
     overflow: hidden;}
 #g-right .li5{border-bottom: 0;}
 #g-right li a{display: block;padding-left: 55px;color:#fff;font-size: 14px;
     height: 58px;line-height: 58px;overflow: hidden;
-    background: url(/assets/fiveram/images/l-r1.jpg) no-repeat 10px center;}
-#g-right .li2 a{background: url(/assets/fiveram/images/l-r3.jpg) no-repeat 15px center;}
-#g-right .li3 a{background: url(/assets/fiveram/images/l-r4.jpg) no-repeat 15px center;}
-#g-right .li4 a{background: url(/assets/fiveram/images/l-r6.jpg) no-repeat 18px center;}
+    background: url(/img/l-r1.jpg) no-repeat 10px center;}
+#g-right .li2 a{background: url(/img/l-r3.jpg) no-repeat 15px center;}
+#g-right .li3 a{background: url(/img/l-r4.jpg) no-repeat 15px center;}
+#g-right .li4 a{background: url(/img/l-r6.jpg) no-repeat 18px center;}
 #g-right li .a2{padding-top: 10px;line-height: 18px;}
 #g-right li img{display: block;margin:17px auto;width: 151px;height: 177px;}
 
@@ -165,14 +166,14 @@ box-sizing: border-box;}
 .g-right-menu li a{display: block;height: 60px;
     border-top: 1px solid #7d7f88;
     border-bottom: 1px solid #585a66;
-    background: url(/assets/fiveram/images/l-r1.jpg) no-repeat center;}
+    background: url(/img/l-r1.jpg) no-repeat center;}
 .g-right-menu .li1 a{border-top: 0;}
-.g-right-menu .li2 a{background-image: url(/assets/fiveram/images/l-r2.jpg);}
-.g-right-menu .li3 a{background-image: url(/assets/fiveram/images/l-r3.jpg);}
-.g-right-menu .li4 a{background-image: url(/assets/fiveram/images/l-r4.jpg);}
-.g-right-menu .li5 a{background-image: url(/assets/fiveram/images/l-r5.jpg);}
+.g-right-menu .li2 a{background-image: url(/img/l-r2.jpg);}
+.g-right-menu .li3 a{background-image: url(/img/l-r3.jpg);}
+.g-right-menu .li4 a{background-image: url(/img/l-r4.jpg);}
+.g-right-menu .li5 a{background-image: url(/img/l-r5.jpg);}
 .g-right-menu .li6 a{border-bottom: 0;
-    background-image: url(/assets/fiveram/images/l-r6.jpg);}
+    background-image: url(/img/l-r6.jpg);}
 
 
 /* 2016/4/27 */

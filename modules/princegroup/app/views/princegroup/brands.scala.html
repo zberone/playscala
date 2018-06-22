@@ -1,0 +1,54 @@
+@(message: String, brandID: String, computers: List[Computer], configThisFile: String)(implicit messages: Messages)
+@import brand._
+@import controllers.princegroup.routes
+
+@theModals = {
+
+}
+
+@views.html.princegroup.main(title = message, modals = theModals) {
+
+    <!--旗下品牌-->
+    <div class="nav-box">
+        <!--左侧菜单-->
+        <div class="left-menus">
+            <div><a href="@routes.Application.about()">@Messages("princegroup.aboutoji")</a></div>
+            <div id="navi">
+                <a href="@routes.Application.brands()"><span>@Messages("princegroup.brands")</span></a>
+                <ul class="pro-act">
+
+                    <a href="@routes.Application.brands("fiveram")"> <li @if(brandID=="fiveram"){class='lli-act'} >@Messages("princegroup.brands.fiveram")</li></a>
+                    <a href="@routes.Application.brands("bibi")"><li @if(brandID=="bibi"){class='lli-act'}>@Messages("princegroup.brands.bibi")</li></a>
+                    <a href="@routes.Application.brands("pid")"><li @if(brandID=="pid"){class='lli-act'}>@Messages("princegroup.brands.pid")</li></a>
+                </ul>
+            </div>
+            <div><a href="@routes.Application.csr">@Messages("princegroup.csr")</a></div>
+            <div><a href="@routes.Application.contact">@Messages("princegroup.contact")</a></div>
+        </div>
+        <!--右侧盒子-->
+        <!--五羊-->
+        <div class="content-box">
+
+        @brandID match {
+            case "fiveram" => {
+                        @views.html.princegroup.brand.fiveram("")
+            }
+            case "bibi" => {
+                    @views.html.princegroup.brand.bibi("")
+            }
+            case "pid" => {
+                     @views.html.princegroup.brand.pid("")
+            }
+            case _ => {
+                    @views.html.princegroup.brand.fiveram("")
+            }
+
+        }
+        </div>
+
+    </div>
+
+
+
+
+}

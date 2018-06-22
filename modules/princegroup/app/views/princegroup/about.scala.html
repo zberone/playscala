@@ -1,0 +1,65 @@
+@(message: String, aboutID: String, computers: List[Computer], configThisFile: String)(implicit messages: Messages)
+
+@import controllers.princegroup.routes
+@theModals = {
+
+}
+
+@views.html.princegroup.main(title = message, modals = theModals) {
+
+@***************************
+***<!-- content start -->***
+***<!--关于OJI-->***
+****************************@
+
+
+<div class="nav-box">
+    @*************
+    **<!--左侧菜单-->**
+    *****************@
+    <div class="left-menus">
+        <div>
+            <a href="@routes.Application.about()">@Messages("princegroup.aboutoji")</a>
+            <ul class="about-chan">
+                <a href="@routes.Application.about("history")"><li @if(aboutID=="history"){class='lli-act'}>@Messages("princegroup.about.history")</li></a>
+                <a href="@routes.Application.about("groupdata")"><li @if(aboutID=="groupdata"){class='lli-act'}>@Messages("princegroup.about.groupdata")</li></a>
+                <a href="@routes.Application.about("architecture")"><li @if(aboutID=="architecture"){class='lli-act'}>@Messages("princegroup.about.architecture")</li></a>
+                <a href="@routes.Application.about("culture")"><li @if(aboutID=="culture"){class='lli-act'}>@Messages("princegroup.about.culture")</li></a>
+                <a href="@routes.Application.about("advantages")"><li @if(aboutID=="advantages"){class='lli-act'}>@Messages("princegroup.about.advantages")</li></a>
+            </ul>
+        </div>
+        <div><a href="@routes.Application.brands("")">@Messages("princegroup.brands")</a></div>
+        <div><a href="@routes.Application.csr">@Messages("princegroup.csr")</a></div>
+        <div><a href="@routes.Application.contact">@Messages("princegroup.contact")</a></div>
+    </div>
+    @***************
+    **<!--右侧盒子-->**
+    ****************@
+    <div class="content-box">
+
+        @aboutID match {
+        case "advantages" => {
+        @views.html.princegroup.abouts.advantages("")
+        }
+        case "architecture" => {
+        @views.html.princegroup.abouts.architecture("")
+        }
+        case "culture" => {
+        @views.html.princegroup.abouts.culture("")
+        }
+        case "groupdata" => {
+        @views.html.princegroup.abouts.groupdata("")
+        }
+        case _ => {
+        @views.html.princegroup.abouts.history("")
+        }
+
+        }
+
+
+
+
+    </div>
+</div>
+
+}

@@ -1,0 +1,33 @@
+@(message: String)(implicit messages: Messages)
+@import controllers.princegroup.routes
+@defining(play.core.PlayVersion.current) { version =>
+    <!--五羊-->
+
+    <div class="pro-box" style="display: block;">
+        <div class="about-box-til">
+            <div><a href="@routes.Application.index">@Messages("princegroup.home")</a>
+                <a href="@routes.Application.brands()">@Messages("princegroup.brands")</a> / <span>@Messages("princegroup.brands.fiveram")</span></div>
+
+            @messages.lang.code match {
+            case "zh-CN" => {
+            <!-- Chinese -->
+            @fiveramCn("")
+            <!-- Chinese end-->
+            }
+            case _ => {
+            <!-- Other -->
+            @fiveramEn("")
+            <!-- Other end-->
+            }
+            }
+
+            <div>
+                <div>
+                    <br>
+                    <a href="http://www.bibigroup.com"><span style="color:#e4007f;">进入五羊&reg;品牌网站&gt;</span></a></div><div><a href="#"><span style="color:#e4007f;">进入五羊&reg;天猫旗舰店&gt;</span></a>&nbsp;&nbsp;&nbsp;<a href="#"><span style="color:#e4007f;">进入五羊&reg;京东自营专卖店&gt;</span></a></div></div>
+
+        </div>
+    </div>
+
+
+}

@@ -1,0 +1,21 @@
+@(message: String)(implicit messages: Messages)
+@import controllers.princegroup.routes
+@defining(play.core.PlayVersion.current) { version =>
+
+<!--首页内容-->
+<div> High end baby diaper brand from the United States.</div>
+</div>
+<div class="pro-text">
+<div><img src="@routes.Assets.img("brands-01bibi.jpg")"></div>
+<div >
+    bibi
+</div>
+<div>
+    bibi is a high-end baby diaper brand from the United States. bibi focuses on the development and production of high-quality and safe baby diapers, selects global high-quality raw materials, and is equipped with international leading scientific research team. bibi is committed to providing high-end product experience for the global baby. It has already provided high-quality products for tens of millions of baby families, bringing more relaxed and convenient child-rearing to mothers. bibi always takes care of every baby, providing them with the most comfortable and safe care and accompanying the baby's healthy and happy growth.
+</div>
+<script>
+document.title = 'bibi'+'_'+ @Messages("princegroup.subtitle");
+</script>
+
+}
+

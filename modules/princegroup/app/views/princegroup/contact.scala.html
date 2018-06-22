@@ -1,0 +1,69 @@
+@(message: String, computers: List[Computer], configThisFile: String)(implicit messages: Messages)
+@import views.html.princegroup.langpage._
+@import controllers.princegroup.routes
+
+@theModals = {
+
+}
+
+@views.html.princegroup.main(title = message, modals = theModals) {
+
+
+<div class="nav-box">
+    <!--左侧菜单-->
+    <div class="left-menus">
+
+        <div class=""><a href="@routes.Application.about()">@Messages("princegroup.aboutoji")</a></div>
+
+        <div class=""><a href="@routes.Application.brands("")">@Messages("princegroup.brands")</a></div>
+
+        <div class=""><a href="@routes.Application.csr">@Messages("princegroup.csr")</a></div>
+
+        <div class="bgg"><a href="@routes.Application.contact">@Messages("princegroup.contact")</a></div>
+
+    </div>
+    <!--右侧盒子-->
+    <div class="content-box">
+        <div class="about-box-til">
+            <div><a href="@routes.Application.index">@Messages("princegroup.home")</a>
+                <a href="@routes.Application.contact">@Messages("princegroup.contact")</a></div>
+            <div>@Messages("princegroup.contact")</div>
+        </div>
+        <div class="cont-box">
+        @messages.lang.code match {
+        case "zh-CN" => {
+        <!-- Chinese -->
+        @contactCn("")
+        }
+        case _ => {
+        <!-- Other -->
+        @contactEn("")
+        }
+        }
+            <br>
+            <!--
+                                    <form action="./" enctype="multipart/form-data" method="get" onsubmit="return validate_form(this)">
+                                    <input type="hidden" name="action" value="post">
+                                    <input type="hidden" name="diyid" value="1">
+                                    <input type="hidden" name="do" value="2">
+
+                                        <div>
+                                            <input type="text" name="xs" id="xs" placeholder="姓氏">
+                                            <input type="text" name="name" id="name" placeholder="名字">
+                                            <input type="text" name="email" id="email" placeholder="邮箱" onblur="getVal(this.id)">
+                                        </div>
+                                        <div>
+                                            <textarea name="text" id="text" rows="" cols=""></textarea><br>
+                                            <input name="time" value="2018-5-24" type="hidden" id="time" style="width:250px" class="intxt">
+                                            <input type="hidden" name="dede_fields" value="xs,textchar;name,textchar;email,textchar;text,multitext;time,datetime">
+            <input type="hidden" name="dede_fieldshash" value="cc4f2164cef2145492cc09ab25f0f86c">
+                                            <input type="submit" value="发送">
+                                        </div>
+                                    </form>
+            -->
+        </div>
+    </div>
+</div>
+
+
+}

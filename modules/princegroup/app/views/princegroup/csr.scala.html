@@ -1,0 +1,47 @@
+@(message: String, computers: List[Computer], configThisFile: String)(implicit messages: Messages)
+@import views.html.princegroup.langpage._
+@import controllers.princegroup.routes
+
+@theModals = {
+
+}
+
+@views.html.princegroup.main(title = message, modals = theModals) {
+
+<!-- content start -->
+
+<div class="nav-box">
+    <!--left nav-box-->
+    <div class="left-menus">
+
+        <div class=""><a href="@routes.Application.about()">@Messages("princegroup.aboutoji")</a></div>
+
+        <div class=""><a href="@routes.Application.brands("")">@Messages("princegroup.brands")</a></div>
+
+        <div class="bgg"><a href="@routes.Application.csr">@Messages("princegroup.csr")</a></div>
+
+        <div class=""><a href="@routes.Application.contact">@Messages("princegroup.contact")</a></div>
+
+    </div>
+    <!--right content-box-->
+    <div class="content-box">
+        <div class="about-box-til">
+            <div><a href="@routes.Application.index">@Messages("princegroup.home")</a><a href="@routes.Application.csr">@Messages("princegroup.csr")</a></div>
+            <div>@Messages("princegroup.csr")</div>
+        </div>
+        @messages.lang.code match {
+        case "zh-CN" => {
+        <!-- Chinese -->
+        @csrCn("")
+                <!-- Chinese end-->
+        }
+        case _ => {
+        <!-- Other -->
+        @csrEn("")
+                <!-- Other end-->
+        }
+        }
+    </div>
+    <!-- content end -->
+
+}

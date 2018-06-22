@@ -1,0 +1,20 @@
+@(message: String)(implicit messages: Messages)
+@import controllers.princegroup.routes
+@defining(play.core.PlayVersion.current) { version =>
+<div> 百年母婴护理品牌</div>
+</div>
+<div class="pro-text">
+<!--首页内容-->
+<div><img src="@routes.Assets.img("brands-02fiveram.jpg")"></div>
+<div >
+    Fiveram
+</div>
+<div>
+    五羊品牌最早可追溯于1914年，是中国知名的母婴护理品牌。我们始终坚持“秉承为人父母之心”的理念，集合全球研发团队 的力量，致力于为0-3岁婴幼儿及孕产期妈妈提供安全、优质、可靠、全面的产品及服务。五羊所生产的婴儿湿巾，婴儿洗衣皂 及其它母婴用品，已经超过1000万中国家庭口碑实证，热销全球。
+</div>
+
+<script>
+document.title = '五羊'+'_'+ @Messages("princegroup.subtitle");
+</script>
+}
+

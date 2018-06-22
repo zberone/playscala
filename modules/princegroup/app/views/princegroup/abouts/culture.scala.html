@@ -1,0 +1,30 @@
+@(message: String)(implicit messages: Messages)
+@import controllers.princegroup.routes
+@defining(play.core.PlayVersion.current) { version =>
+
+<div class="content-box-box" style="display: none;">
+    <div class="about-box-til">
+        <div><a href="@routes.Application.">@Messages("princegroup.home") </a>
+            <a href="@routes.Application.about()">@Messages("princegroup.aboutoji")</a> /  <span>@Messages("princegroup.about.culture")</span></div>
+
+        @messages.lang.code match {
+        case "zh-CN" => {
+        <!-- Chinese -->
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.css("culture-cn.css")">
+        @cultureCn("")
+        <!-- Chinese end-->
+        }
+        case _ => {
+        <!-- Other -->
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.css("culture-en.css")">
+        @cultureEn("")
+        <!-- Other end-->
+        }
+        }
+
+</div>
+    @******改写标题****@
+<script>
+document.title = "@Messages("princegroup.about.groupdata")"+"_"+ "@Messages("princegroup.subtitle")";
+</script>
+}

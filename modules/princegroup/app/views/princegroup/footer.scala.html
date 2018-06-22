@@ -1,0 +1,62 @@
+@(message: String)(implicit messages: Messages)
+@import controllers.princegroup.routes
+@defining(play.core.PlayVersion.current) { version =>
+
+@*****
+**footer**
+***@
+<footer>
+
+    <div class="nav-box">
+        @messages.lang.code match {
+        case "zh-CN" => {
+        <!--  chinese footer  -->
+        <div>
+            Copyright © Prince 2018 All rights reserved. <a href="http://www.miitbeian.gov.cn/">粤ICP备17093074号-6</a><br>
+            广东王子大健康有限公司 广州市天河区珠江新城兴国路21号广物中心6楼<br>
+            电话：020 3828 4257<br>
+            邮箱：<a href="#">info@@princegroup.com.cn</a>
+        </div>
+        }
+        case _ => {
+        <!--  otherlang footer  -->
+        <div>
+            Copyright © Prince 2018 All rights reserved. <a href="http://www.miitbeian.gov.cn/">粤ICP备17093074号-6</a><br>
+            广东王子大健康有限公司 6F, Guangwu Center, No.21, Xingguo Road, Zhujiang New Town, Tianhe District, GZ, CHINA<br>
+            Tel: 8620 3828 4257<br>
+            E-mail: <a href="#">info@@princegroup.com.cn</a>
+        </div>
+        }
+        }
+
+        <div>
+
+            <div id="id" class="id">
+                <a href="https://weibo.com/"><img src="@routes.Assets.img("bottom-icon01.png")"></a>
+                <a href="./" class="footer-popup">
+                    <img src="@routes.Assets.img("bottom-icon02.png")">
+                    <div class="footer-popup-out">
+                        <span></span>
+                        <img src="@routes.Assets.img("1-1P502115522A6.png")">
+                    </div>
+                </a>
+                <a href="mailto:info@@oji.com"><img src="@routes.Assets.img("bottom-icon03.png")"></a>
+            </div>
+            <div>
+                <ul>
+
+                    <li><a href="@routes.Application.about()">@Messages("princegroup.aboutoji").toUpperCase</a></li>
+                    <li><a href="@routes.Application.brands()">@Messages("princegroup.brands").toUpperCase</a></li>
+                    <li><a href="@routes.Application.csr">@Messages("princegroup.csr").toUpperCase</a></li>
+                    <li><a href="@routes.Application.contact">@Messages("princegroup.contact").toUpperCase</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+
+}
+

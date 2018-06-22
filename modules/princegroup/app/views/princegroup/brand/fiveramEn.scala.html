@@ -1,0 +1,22 @@
+@(message: String)(implicit messages: Messages)
+@import controllers.princegroup.routes
+@defining(play.core.PlayVersion.current) { version =>
+<div> Famous mother and baby care brand.</div>
+</div>
+<div class="pro-text">
+<!--首页内容-->
+<div><img src="@routes.Assets.img("brands-02fiveram.jpg")"></div>
+<div >
+    Fiveram
+</div>
+<div>
+    Fiveram can be traced back to 1914. It is a well-known brand of mother and baby care in China. We always adhere to the concept of "adhering to the heart of parents".We gather the power of the global R & D team  to provide safe, high-quality, reliable and comprehensive products and services for 0-3 year old infants and pregnant mothers.
+    <br />
+    Fiveram's baby diapers, baby wipes, baby laundry soap and other baby care products have received more than 10 million Chinese household word of mouth and are selling well worldwide.
+</div>
+
+<script>
+document.title = 'fiveram'+'_'+ @Messages("princegroup.subtitle");
+</script>
+}
+

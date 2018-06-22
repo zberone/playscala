@@ -1,0 +1,158 @@
+@(message: String)(implicit messages: Messages)
+@import controllers.princegroup.routes
+@defining(play.core.PlayVersion.current) { version =>
+
+<!--首页内容-->
+<!--第一宽屏图-->
+<div class="big-img big-img-o" style="background: url('@routes.Assets.img("big-img01.jpg")'); height: 974px;">
+<div class="big-img-box bigbox-o">
+    <div>@Messages("princegroup.brands")</div>
+    <div class="bigbox-o-text">
+        <div>Fiveram</div>
+        <div>Famous mother and baby care brand.</div>
+        <div><a href="@routes.Application.brands("fiveram")"><img src="@routes.Assets.img("1-1P32GQ9460-L.png")"></a></div>
+    </div>
+    <div class="bigbox-o-text">
+        <div>bibi</div>
+        <div>High end baby diaper brand from USA.</div>
+        <div><a href="@routes.Application.brands("bibi")"><img src="@routes.Assets.img("1-1P32GR0080-L.png")"></a></div>
+    </div>
+    <div class="bigbox-o-text">
+        <div>Pid</div>
+        <div>A professional adult diaper brand.</div>
+        <div><a href="@routes.Application.brands("pid")"><img src="@routes.Assets.img("1-1P32GR0270-L.png")"></a></div>
+    </div>
+
+</div>
+</div>
+<!--第一宽屏图下-->
+<div class="big-img-down bdown-o">
+    <div class="nav-box">
+        <div class="bdown-til">
+            OJI global layout
+        </div>
+        <div class="roll-num">
+            <div><a href="@routes.Application.about("groupdata")#his">
+                <div>History</div>
+                <div><span class="counter">100</span>+</div>
+                </a>
+            </div>
+            <div>
+                <a href="@routes.Application.about("groupdata")#his">
+                <div>Positive word of mouth</div>
+                <div><span class="counter">10,000,000</span></div>
+                </a>
+            </div>
+            <div>
+                <a href="@routes.Application.about("groupdata")#mark">
+                <div>The store sells well</div>
+                <div><span class="counter">3,000</span>+</div>
+                </a>
+            </div>
+            <div>
+                <a href="@routes.Application.about("groupdata")#mark">
+                <div>Natural from ten countries</div>
+                <div><span class="counter">10</span></div>
+                </a>
+            </div>
+            <div>
+                <a href="@routes.Application.about("groupdata")#team">
+                <div>Global scientific team</div>
+                <div><span class="counter">3</span></div>
+                </a>
+            </div>
+            <div>
+                <a href="@routes.Application.about("groupdata")#team">
+                <div>International Security Certification</div>
+                <div><span class="counter">5</span>+</div>
+                </a>
+            </div>
+        </div>
+        <div>All of our innovation, more from the real life insight into the baby and mother.</div>
+    </div>
+</div>
+<!--第二宽屏图-->
+<div class="big-img big-img-t">
+    <div class="big-img-box bigbox-t">
+        <div class="bbox-til">
+            <div>Fiveram</div>
+            <div>Famous mother and baby care brand.</div>
+        </div>
+        <div><a href="@routes.Application.brands("fiveram")"><img src="@routes.Assets.img("bimg02-icon01.png")"></a></div>
+        <div><a href="@routes.Application.brands("fiveram")">@Messages("princegroup.index.more")<img src="@routes.Assets.img("gengduo.png")" alt=""></a></div>
+    </div>
+</div>
+<!--第二宽屏图下-->
+<div class="big-img-down bdown-t">
+
+    <div class="nav-box">
+        <div class="bdown-til">
+            About  Fiveram
+        </div>
+        <div>
+            <div>
+                Fiveram can be traced back to 1914. It is a well-known brand of mother and baby care in China. We always adhere to the concept of "adhering to the heart of parents".We gather the power of the global R & D team  to provide safe, high-quality, reliable and comprehensive products and services for 0-3 year old infants and pregnant mothers.
+            <br />
+                Fiveram's baby diapers, baby wipes, baby laundry soap and other baby care products have received more than 10 million Chinese household word of mouth and are selling well worldwide.
+            </div>
+
+        </div>
+        <div><a href="@routes.Application.brands("fiveram")">@Messages("princegroup.index.more")<img src="@routes.Assets.img("gengduo02.png")" alt=""></a></div>
+    </div>
+
+</div>
+<!--第三宽屏图-->
+<div class="big-img big-img-th">
+    <div class="big-img-box bigbox-s">
+        <div class="bbox-til">
+            <div>bibi</div>
+            <div>High end baby diaper brand from the United States.</div>
+        </div>
+        <div><a href="@routes.Application.brands("bibi")"><img src="@routes.Assets.img("bimg03-icon01.png")"></a></div>
+        <div><a href="@routes.Application.brands("bibi")">@Messages("princegroup.index.more")<img src="@routes.Assets.img("gengduo.png")" alt=""></a></div>
+    </div>
+</div>
+<!--第三宽屏图下-->
+<div class="big-img-down bdown-t">
+    <div class="nav-box">
+        <div class="bdown-til">
+            About  bibi
+        </div>
+        <div>
+            <div>
+                bibi is a high-end baby diaper brand from the United States. bibi focuses on the development and production of high-quality and safe baby diapers, selects global high-quality raw materials, and is equipped with international leading scientific research team. bibi is committed to providing high-end product experience for the global baby. It has already provided high-quality products for tens of millions of baby families, bringing more relaxed and convenient child-rearing to mothers. bibi always takes care of every baby, providing them with the most comfortable and safe care and accompanying the baby's healthy and happy growth.
+            </div>
+
+        </div>
+        <div><a href="@routes.Application.brands("bibi")">@Messages("princegroup.index.more")<img src="@routes.Assets.img("gengduo02.png")" alt=""></a></div>
+    </div>
+</div>
+<!--第四宽屏图-->
+<div class="big-img big-img-f">
+    <div class="big-img-box bigbox-f">
+        <div class="bbox-til">
+            <div>Pid</div>
+            <div>Professional adult diaper brand.</div>
+        </div>
+        <div><a href="@routes.Application.brands("pid")"><img src="@routes.Assets.img("bimg04-icon01.png")"></a></div>
+        <div><a href="@routes.Application.brands("pid")">@Messages("princegroup.index.more")<img src="@routes.Assets.img("gengduo.png")" alt=""></a></div>
+    </div>
+</div>
+<!--第四宽屏图下-->
+<div class="big-img-down bdown-t">
+    <div class="nav-box">
+        <div class="bdown-til">
+            About  Pid
+        </div>
+        <div>
+            <div>
+                Pid is a professional adult diapers brand, focusing on the development and manufacture of incontinence care products, providing quality products and services for global consumers and health care institutions.It is equipped with the world's top scientific research personnel and laboratory, with strong research and development capabilities to meet the needs of the diversification of consumers around the world. According to the body status of different types of users, it has developed a full range of products.  Through high quality, comfortable and convenient use experience, Pid maintains the user's ability to act and the quality of life to the maximum.
+            </div>
+        </div>
+        <div><a href="@routes.Application.brands("pid")">@Messages("princegroup.index.more")<img src="@routes.Assets.img("gengduo02.png")" alt=""></a></div>
+    </div>
+</div>
+
+
+}
+

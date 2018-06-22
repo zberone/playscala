@@ -1,0 +1,21 @@
+@(message: String)(implicit messages: Messages)
+@import controllers.princegroup.routes
+@defining(play.core.PlayVersion.current) { version =>
+
+<!--首页内容-->
+<div> Professional adult diaper brand.</div>
+</div>
+<div class="pro-text">
+<div><img src="@routes.Assets.img("brands-03pid.jpg")"></div>
+<div >
+    Pid
+</div>
+<div>
+    Pid is a professional adult diapers brand, focusing on the development and manufacture of incontinence care products, providing quality products and services for global consumers and health care institutions.It is equipped with the world's top scientific research personnel and laboratory, with strong research and development capabilities to meet the needs of the diversification of consumers around the world. According to the body status of different types of users, it has developed a full range of products.  Through high quality, comfortable and convenient use experience, Pid maintains the user's ability to act and the quality of life to the maximum.
+</div>
+
+<script>
+document.title = 'PID'+'_'+ @Messages("princegroup.subtitle");
+</script>
+}
+

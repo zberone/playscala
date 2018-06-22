@@ -10,7 +10,7 @@ import play.api.test._
   */
 class ApplicationSpec extends PlaySpecification {
 
-  val app = new GuiceApplicationBuilder().in(new File("./modules/fiveram/")).build
+  val app = new GuiceApplicationBuilder().in(new File("./modules/fiveramSite/")).build
 
   "Web Module" should {
 

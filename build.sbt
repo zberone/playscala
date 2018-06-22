@@ -1,6 +1,6 @@
 name := "playweb"
 version := "1.0"
-Common.appSettings(messagesFilesFrom = Seq("common", "admin", "web", "princegroup", "fiveram"))
+Common.appSettings(messagesFilesFrom = Seq("common", "admin", "web", "princegroup", "fiveramSite"))
 
 
 lazy val common = (project in file("modules/common")).enablePlugins(PlayScala)
@@ -11,9 +11,9 @@ lazy val web = (project in file("modules/web")).enablePlugins(PlayScala).depends
 
 lazy val princegroup = (project in file("modules/princegroup")).enablePlugins(PlayScala).dependsOn(common)
 
-lazy val fiveram = (project in file("modules/fiveram")).enablePlugins(PlayScala).dependsOn(common)
+lazy val fiveramSite = (project in file("modules/fiveramSite")).enablePlugins(PlayScala).dependsOn(common)
 
-lazy val root = (project in file(".")).enablePlugins(PlayScala).aggregate(common, admin, web, princegroup, fiveram).dependsOn(common, admin, web, princegroup, fiveram)
+lazy val root = (project in file(".")).enablePlugins(PlayScala).aggregate(common, admin, web, princegroup, fiveramSite).dependsOn(common, admin, web, princegroup, fiveramSite)
 
 
 libraryDependencies ++= Common.commonDependencies

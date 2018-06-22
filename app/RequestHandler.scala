@@ -1,6 +1,6 @@
 import javax.inject.Inject
 import play.api.http._
-import play.api.mvc.{ RequestHeader, EssentialAction, Action, Results }
+import play.api.mvc.{ Action, EssentialAction, RequestHeader, Results }
 import play.api.routing.Router
 
 class VirtualHostRequestHandler @Inject() (
@@ -10,7 +10,7 @@ class VirtualHostRequestHandler @Inject() (
   webRouter: web.Routes,
   adminRouter: admin.Routes,
   princegroupRouter: princegroup.Routes,
-  fiveramRouter: fiveram.Routes
+  fiveramRouter: fiveramSite.Routes
 ) extends DefaultHttpRequestHandler(
   webRouter, errorHandler, configuration, filters
 ) {
@@ -28,7 +28,7 @@ class VirtualHostRequestHandler @Inject() (
     case "web.example.com" => webRouter.routes.lift(rewriteAssets("web", request))
     case "princegroup.example.com" => princegroupRouter.routes.lift(rewriteAssets("princegroup", request))
     case "web.princegroup.cn" => princegroupRouter.routes.lift(rewriteAssets("princegroup", request))
-    case "fiveram.example.com" => fiveramRouter.routes.lift(rewriteAssets("fiveram", request))
+    case "fiveram.example.com" => fiveramRouter.routes.lift(rewriteAssets("fiveramSite", request))
     case _ => adminRouter.routes.lift(rewriteAssets("admin", request))
   }
 

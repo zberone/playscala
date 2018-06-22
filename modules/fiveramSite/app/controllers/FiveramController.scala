@@ -1,4 +1,4 @@
-package controllers.fiveram
+package controllers.fiveramSite
 
 import javax.inject.{ Inject, Singleton }
 import play.api._
@@ -22,22 +22,22 @@ class FiveramController @Inject() (val messagesApi: MessagesApi, conf: Configura
    * a path of `/`.
    */
   def index = Action {
-    Ok(views.html.fiveram.index("AnormHome"))
+    Ok(views.html.fiveramViews.index("AnormHome"))
   }
   def about = Action {
-    Ok(views.html.fiveram.about("About"))
+    Ok(views.html.fiveramViews.about("About"))
   }
   def contact = Action {
-    Ok(views.html.fiveram.contact("Contact"))
+    Ok(views.html.fiveramViews.contact("Contact"))
   }
   def brand = Action {
-    Ok(views.html.fiveram.brand("Brand"))
+    Ok(views.html.fiveramViews.brand("Brand"))
   }
   def careers = Action {
-    Ok(views.html.fiveram.careers("Careers"))
+    Ok(views.html.fiveramViews.careers("Careers"))
   }
   def redumbrella = Action {
-    Ok(views.html.fiveram.redumbrella("RedUmbrella"))
+    Ok(views.html.fiveramViews.redumbrella("RedUmbrella"))
   }
 
   def selectLang(lang: String) = Action { implicit request =>

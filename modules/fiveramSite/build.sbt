@@ -1,4 +1,4 @@
-Common.serviceSettings(module = "fiveram", messagesFilesFrom = Seq("common", "fiveram"))
+Common.serviceSettings(module = "fiveramSite", messagesFilesFrom = Seq("common", "fiveramSite"))
 
 // Add here the specific settings for this module
 

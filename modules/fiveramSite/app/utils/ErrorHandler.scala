@@ -22,13 +22,13 @@ class ErrorHandler @Inject() (
   // 404 - page not found error
   override def onNotFound(request: RequestHeader, message: String): Future[Result] = Future.successful {
     NotFound(env.mode match {
-      case Mode.Prod => views.html.fiveramViews.errors.notFound(request)(request2Messages(request))
+      case Mode.Prod => views.html.fiveramPC.errors.notFound(request)(request2Messages(request))
       case _ => views.html.defaultpages.devNotFound(request.method, request.uri, Some(router.get))
     })
   }
 
   // 500 - internal server error
   override def onProdServerError(request: RequestHeader, exception: UsefulException) = Future.successful {
-    InternalServerError(views.html.fiveramViews.errors.error(request, exception)(request2Messages(request)))
+    InternalServerError(views.html.fiveramPC.errors.error(request, exception)(request2Messages(request)))
   }
 }

@@ -22,22 +22,22 @@ class FiveramController @Inject() (val messagesApi: MessagesApi, conf: Configura
    * a path of `/`.
    */
   def index = Action {
-    Ok(views.html.fiveramViews.index("AnormHome"))
+    Ok(views.html.fiveramPC.index("AnormHome"))
   }
   def about = Action {
-    Ok(views.html.fiveramViews.about("About"))
+    Ok(views.html.fiveramPC.about("About"))
   }
   def contact = Action {
-    Ok(views.html.fiveramViews.contact("Contact"))
+    Ok(views.html.fiveramPC.contact("Contact"))
   }
   def brand = Action {
-    Ok(views.html.fiveramViews.brand("Brand"))
+    Ok(views.html.fiveramPC.brand("Brand"))
   }
   def careers = Action {
-    Ok(views.html.fiveramViews.careers("Careers"))
+    Ok(views.html.fiveramPC.careers("Careers"))
   }
   def redumbrella = Action {
-    Ok(views.html.fiveramViews.redumbrella("RedUmbrella"))
+    Ok(views.html.fiveramPC.redumbrella("RedUmbrella"))
   }
 
   def selectLang(lang: String) = Action { implicit request =>

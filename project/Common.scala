@@ -1,16 +1,15 @@
-import sbt._
-import Keys._
-import play.sbt.PlayImport._
-import play.sbt.routes.RoutesKeys.routesGenerator
-import com.typesafe.sbt.web.SbtWeb.autoImport.{Assets, pipelineStages}
-import com.typesafe.sbt.less.Import.LessKeys
-import com.typesafe.sbt.rjs.Import.{rjs, RjsKeys}
+import com.typesafe.config._
 import com.typesafe.sbt.digest.Import.digest
 import com.typesafe.sbt.gzip.Import.gzip
-import com.typesafe.config._
+import com.typesafe.sbt.less.Import.LessKeys
+import com.typesafe.sbt.rjs.Import.{RjsKeys, rjs}
+import com.typesafe.sbt.web.SbtWeb.autoImport.{Assets, pipelineStages}
+import play.sbt.PlayImport._
+import sbt.Keys._
+import sbt._
 
 object Common {
-  def appName = "play-multidomain-seed"
+  def appName = "playweb"
 	
   // Common settings for every project
   def settings (theName: String) = Seq(

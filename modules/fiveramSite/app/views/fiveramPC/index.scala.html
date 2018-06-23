@@ -1,11 +1,11 @@
 @(message: String)(implicit messages: Messages)
+@import views.html.fiveramPC.langpage._
 @import controllers.fiveramSite.routes
-@import views.html.fiveramViews.langpage._
 @theModals = {
 
 }
 
-@views.html.fiveramViews.main(title = "五羊 | 首页", modals = theModals){
+@views.html.fiveramPC.main(title = "五羊 | 首页", modals = theModals){
 
 @messages.lang.code match {
 case "zh-CN" => {

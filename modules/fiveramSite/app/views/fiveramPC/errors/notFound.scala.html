@@ -1,5 +1,5 @@
 @(request: RequestHeader)(implicit messages: Messages)
-@views.html.fiveramViews.main("WEB Handler Not Found") {
+@views.html.fiveramPC.main("WEB Handler Not Found") {
   <h1>WEB @Messages("error.notfound.title")</h1>
 	<p>@Messages("error.notfound.text", request.method + " " + request.uri)</p>
 }

@@ -1,7 +1,6 @@
 import javax.inject.Inject
 import play.api.http._
-import play.api.mvc.{ Action, EssentialAction, RequestHeader, Results }
-import play.api.routing.Router
+import play.api.mvc.RequestHeader
 
 class VirtualHostRequestHandler @Inject() (
   errorHandler: HttpErrorHandler,
@@ -26,9 +25,8 @@ class VirtualHostRequestHandler @Inject() (
   */
   override def routeRequest(request: RequestHeader) = getSubdomain(request) match {
     case "web.example.com" => webRouter.routes.lift(rewriteAssets("web", request))
-    case "princegroup.example.com" => princegroupRouter.routes.lift(rewriteAssets("princegroup", request))
-    case "web.princegroup.cn" => princegroupRouter.routes.lift(rewriteAssets("princegroup", request))
-    case "fiveram.example.com" => fiveramRouter.routes.lift(rewriteAssets("fiveramSite", request))
+    case "www.princegroup.com.cn" => princegroupRouter.routes.lift(rewriteAssets("princegroup", request))
+    case "web.princegroup.cn" => fiveramRouter.routes.lift(rewriteAssets("fiveramSite", request))
     case _ => adminRouter.routes.lift(rewriteAssets("admin", request))
   }
 

@@ -4,8 +4,8 @@
 
 # Home page
 GET     /							controllers.princegroup.Application.index
-GET     /about							controllers.princegroup.Application.about(ID: String ?="")
-GET     /brands						controllers.princegroup.Application.brands(ID: String ?="")
+GET     /about							controllers.princegroup.Application.about(ID: String ?="history")
+GET     /brands						controllers.princegroup.Application.brands(ID: String ?="fiveram")
 #GET     /brands/:brandsID						controllers.princegroup.Application.brands(brandsID: String)
 GET     /contact						controllers.princegroup.Application.contact
 GET     /csr							controllers.princegroup.Application.csr

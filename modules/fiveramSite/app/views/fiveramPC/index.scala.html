@@ -1,4 +1,5 @@
 @(message: String)(implicit messages: Messages)
+@import views.html.fiveramPC.mopage._
 @import views.html.fiveramPC.langpage._
 @import controllers.fiveramSite.routes
 @theModals = {
@@ -6,7 +7,7 @@
 }
 
 @views.html.fiveramPC.main(title = "五羊 | 首页", modals = theModals){
-
+@testpage("")
 @messages.lang.code match {
 case "zh-CN" => {
 <!-- Chinese -->

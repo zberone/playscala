@@ -1,8 +1,8 @@
 package controllers.fiveramSite
 
-import javax.inject.{Inject, Singleton}
+import javax.inject.{ Inject, Singleton }
 import play.api._
-import play.api.i18n.{I18nSupport, Lang, MessagesApi}
+import play.api.i18n.{ I18nSupport, Lang, MessagesApi }
 import play.api.mvc._
 
 /**

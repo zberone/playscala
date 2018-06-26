@@ -9,15 +9,16 @@
                 <a href="@routes.Application.brands()">@Messages("princegroup.brands")</a> / <span>@Messages("princegroup.brands.bibi")</span></div>
 
             @messages.lang.code match {
-            case "zh-CN" => {
-            <!-- Chinese -->
-            @bibiCn("")
-            <!-- Chinese end-->
-            }
-            case _ => {
+
+            case "en" => {
             <!-- Other -->
             @bibiEn("")
             <!-- Other end-->
+            }
+            case _ => {
+            <!-- Chinese -->
+            @bibiCn("")
+            <!-- Chinese end-->
             }
             }
 

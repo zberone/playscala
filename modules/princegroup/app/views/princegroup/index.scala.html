@@ -112,13 +112,13 @@ $(document).ready(function(){
 @views.html.princegroup.main(title = message, modals = theModals) {
 
 @messages.lang.code match {
-case "zh-CN" => {
+case "en" => {
 <!-- Chinese -->
-@indexCn("")
+@indexEn("")
 }
 case _ => {
 <!-- Other -->
-@indexEn("")
+@indexCn("")
 }
 }
 

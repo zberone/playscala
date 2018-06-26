@@ -14,13 +14,13 @@
             <div class="lan">
                 <ul>
                     @messages.lang.code match {
-                    case "zh-CN" => {
-                    <li><a href="@routes.FiveramController.selectLang("en")">Eng</a></li>
-                    <li class="on"><a href="@routes.FiveramController.selectLang("zh-CN")">中文</a></li>
+                    case "en" => {
+                    <li class="on"><a href="@routes.FiveramController.selectLang("en")">Eng</a></li>
+                    <li><a href="@routes.FiveramController.selectLang("zh")">中文</a></li>
                     }
                     case _ => {
-                    <li class="on"><a href="@routes.FiveramController.selectLang("en")">Eng</a></li>
-                    <li><a href="@routes.FiveramController.selectLang("zh-CN")">中文</a></li>
+                    <li><a href="@routes.FiveramController.selectLang("en")">Eng</a></li>
+                    <li class="on"><a href="@routes.FiveramController.selectLang("zh")">中文</a></li>
                     }
                     }
 

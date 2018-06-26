@@ -9,13 +9,14 @@
 @views.html.fiveramPC.main(title = "五羊 | 首页", modals = theModals){
 @testpage("")
 @messages.lang.code match {
-case "zh-CN" => {
-<!-- Chinese -->
-@indexCn("")
-}
-case _ => {
+
+case "en" => {
 <!-- Other -->
 @indexEn("")
+}
+case _ => {
+<!-- Chinese -->
+@indexCn("")
 }
 }
 

@@ -11,15 +11,16 @@
     </div>
     <div class="about-core">
         @messages.lang.code match {
-        case "zh-CN" => {
-        <!-- Chinese -->
-        @advantagesCn("")
-        <!-- Chinese end-->
-        }
-        case _ => {
+
+        case "en" => {
         <!-- Other -->
         @advantagesEn("")
         <!-- Other end-->
+        }
+        case _ => {
+        <!-- Chinese -->
+        @advantagesCn("")
+        <!-- Chinese end-->
         }
         }
     </div>

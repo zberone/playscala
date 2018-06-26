@@ -37,16 +37,16 @@
 		}
 		-->
 		@messages.lang.code match {
-			case "zh-CN" => {
+			case "zh" => {
 				<a class="btn btn-default" href="@routes.Application.selectLang("en")">英&nbsp;&nbsp;&nbsp;&nbsp;文</a><br />
 				<a class="btn btn-default" href="@routes.Application.selectLang("es")">西班牙</a>
 				}
 			case "es" => {
 				<a class="btn btn-default" href="@routes.Application.selectLang("en")">Ver en English </a><br />
-				<a class="btn btn-default" href="@routes.Application.selectLang("zh-CN")">Ver en chinese</a>
+				<a class="btn btn-default" href="@routes.Application.selectLang("zh")">Ver en chinese</a>
 				}
 			case _ => {
-				<a class="btn btn-default" href="@routes.Application.selectLang("zh-CN")">See in Chinese</a><br />
+				<a class="btn btn-default" href="@routes.Application.selectLang("zh")">See in Chinese</a><br />
 				<a class="btn btn-default" href="@routes.Application.selectLang("es")">See in Spanish</a>
 				}
 		}

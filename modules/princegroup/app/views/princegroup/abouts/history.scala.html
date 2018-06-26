@@ -13,17 +13,18 @@
     </div>
 
     @messages.lang.code match {
-    case "zh-CN" => {
-    <!-- Chinese -->
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.css("history-cn.css")">
-    @historyCn("")
-    <!-- Chinese end-->
-    }
-    case _ => {
+
+    case "en" => {
     <!-- Other -->
     <link rel="stylesheet" type="text/css" href="@routes.Assets.css("history-en.css")">
     @historyEn("")
     <!-- Other end-->
+    }
+    case _ => {
+    <!-- Chinese -->
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.css("history-cn.css")">
+    @historyCn("")
+    <!-- Chinese end-->
     }
     }
 

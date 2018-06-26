@@ -10,7 +10,7 @@ GET     /brands						controllers.princegroup.Application.brands(ID: String ?="fi
 GET     /contact						controllers.princegroup.Application.contact
 GET     /csr							controllers.princegroup.Application.csr
 
-GET     /lang/$lang<(en|es|zh-CN)>		controllers.princegroup.Application.selectLang(lang: String)
+GET     /lang/$lang<(zh|en|es)>		controllers.princegroup.Application.selectLang(lang: String)
 
 
 

@@ -30,15 +30,15 @@
             <div>@Messages("princegroup.csr")</div>
         </div>
         @messages.lang.code match {
-        case "zh-CN" => {
-        <!-- Chinese -->
-        @csrCn("")
-                <!-- Chinese end-->
-        }
-        case _ => {
+        case "en" => {
         <!-- Other -->
         @csrEn("")
                 <!-- Other end-->
+        }
+        case _ => {
+        <!-- Chinese -->
+        @csrCn("")
+        <!-- Chinese end-->
         }
         }
     </div>

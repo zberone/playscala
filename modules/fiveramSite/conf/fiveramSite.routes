@@ -10,7 +10,7 @@ GET     /careers                      controllers.fiveramSite.FiveramController.
 GET     /redumbrella                  controllers.fiveramSite.FiveramController.redumbrella
 #GET     /assets/*file               controllers.fiveramSite.Assets.at(path="/public", file)
 
-GET     /lang/$lang<(en|es|zh-CN)>		controllers.fiveramSite.FiveramController.selectLang(lang: String)
+GET     /lang/$lang<(zh|en|es)>		controllers.fiveramSite.FiveramController.selectLang(lang: String)
 
 
 

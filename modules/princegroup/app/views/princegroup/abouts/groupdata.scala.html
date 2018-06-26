@@ -10,15 +10,16 @@
     </div>
 
     @messages.lang.code match {
-    case "zh-CN" => {
-    <!-- Chinese -->
-    @groupdataCn("")
-    <!-- Chinese end-->
-    }
-    case _ => {
+
+    case "en" => {
     <!-- Other -->
     @groupdataEn("")
     <!-- Other end-->
+    }
+    case _ => {
+    <!-- Chinese -->
+    @groupdataCn("")
+    <!-- Chinese end-->
     }
     }
 

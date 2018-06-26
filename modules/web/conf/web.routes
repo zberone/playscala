@@ -5,7 +5,7 @@
 # Home page
 GET     /							controllers.web.Application.index
 
-GET     /lang/$lang<(en|es|zh-CN)>		controllers.web.Application.selectLang(lang: String)
+GET     /lang/$lang<(en|es|zh)>		controllers.web.Application.selectLang(lang: String)
 
 
 

@@ -12,15 +12,16 @@
 
     <div class="about-zuj">
         @messages.lang.code match {
-        case "zh-CN" => {
-        <!-- Chinese -->
-        @architectureCn("")
-        <!-- Chinese end-->
-        }
-        case _ => {
+
+        case "en" => {
         <!-- Other -->
         @architectureEn("")
         <!-- Other end-->
+        }
+        case _ => {
+        <!-- Chinese -->
+        @architectureCn("")
+        <!-- Chinese end-->
         }
         }
     </div>

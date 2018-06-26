@@ -8,17 +8,18 @@
             <a href="@routes.Application.about()">@Messages("princegroup.aboutoji")</a> /  <span>@Messages("princegroup.about.culture")</span></div>
 
         @messages.lang.code match {
-        case "zh-CN" => {
-        <!-- Chinese -->
-        <link rel="stylesheet" type="text/css" href="@routes.Assets.css("culture-cn.css")">
-        @cultureCn("")
-        <!-- Chinese end-->
-        }
-        case _ => {
+
+        case "en" => {
         <!-- Other -->
         <link rel="stylesheet" type="text/css" href="@routes.Assets.css("culture-en.css")">
         @cultureEn("")
         <!-- Other end-->
+        }
+        case _ => {
+        <!-- Chinese -->
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.css("culture-cn.css")">
+        @cultureCn("")
+        <!-- Chinese end-->
         }
         }
 

@@ -22,12 +22,13 @@
         <span><img src="@routes.Assets.img("top-icon03.png")"> 400－800－2163</span>
         <span>
         @messages.lang.code match {
-		case "zh-CN" => {
+
+		case "en" => {
+		<a class="" href="@routes.Application.selectLang("zh")">CN</a>
+            }
+            case _ => {
 		<a class="" href="@routes.Application.selectLang("en")">EN</a><br />
 				}
-		case _ => {
-		<a class="" href="@routes.Application.selectLang("zh-CN")">CN</a>
-            }
 		}
 		</span>
     </div>

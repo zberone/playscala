@@ -31,14 +31,15 @@
         </div>
         <div class="cont-box">
         @messages.lang.code match {
-        case "zh-CN" => {
-        <!-- Chinese -->
-        @contactCn("")
-        }
-        case _ => {
+
+        case "en" => {
         <!-- Other -->
         @contactEn("")
         }
+        case _ => {
+            <!-- Chinese -->
+            @contactCn("")
+            }
         }
             <br>
             <!--

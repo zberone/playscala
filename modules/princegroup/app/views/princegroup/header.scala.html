@@ -9,7 +9,7 @@
 <div class="nav-top">
     <div class="nav-box">
         <span >
-            <a href="https://weibo.com/"><img src=""></a>
+<!--            <a href="https://weibo.com/"><img src=""></a>
             <a href="" class="navbar-popup">
                 <img src="">
                 <div class="navbar-popup-out">
@@ -18,6 +18,7 @@
                 </div>
             </a>
             <a href="mailto:info@@oji.com"><img src=""></a>
+          -->
         </span>
         <span><img src="@routes.Assets.img("top-icon03.png")"> 400－800－2163</span>
         <span>
@@ -43,7 +44,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="./"><img src="@routes.Assets.img("1-1P52410420K47.png")"></a>
+                <a class="navbar-brand" href="./">
+                    @messages.lang.code match {
+
+                    case "en" => {
+                    <img src="@routes.Assets.img("logo-en.png")">
+                }
+                case _ => {
+                    <img src="@routes.Assets.img("logo-cn.png")">
+                }
+                }</a>
             </div>
             <div class="navbar-collapse collapse" id="example-navbar-collapse" aria-expanded="false" style="height: 120px;">
                 <ul class="nav navbar-nav">

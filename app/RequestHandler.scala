@@ -27,6 +27,7 @@ class VirtualHostRequestHandler @Inject() (
     case "web.example.com" => webRouter.routes.lift(rewriteAssets("web", request))
     case "www.princegroup.com.cn" => princegroupRouter.routes.lift(rewriteAssets("princegroup", request))
     case "www.oji.cn" => princegroupRouter.routes.lift(rewriteAssets("princegroup", request))
+    case "oji.example.com" => princegroupRouter.routes.lift(rewriteAssets("princegroup", request))
     case "princegroup.example.com" => princegroupRouter.routes.lift(rewriteAssets("princegroup", request))
     case "web.princegroup.cn" => fiveramRouter.routes.lift(rewriteAssets("fiveramSite", request))
     case "fiveram.example.com" => fiveramRouter.routes.lift(rewriteAssets("fiveramSite", request))

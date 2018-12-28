@@ -8,8 +8,7 @@ class VirtualHostRequestHandler @Inject() (
   filters: HttpFilters,
   webRouter: web.Routes,
   adminRouter: admin.Routes,
-  princegroupRouter: princegroup.Routes,
-  fiveramRouter: fiveramSite.Routes
+  princegroupRouter: princegroup.Routes
 ) extends DefaultHttpRequestHandler(
   webRouter, errorHandler, configuration, filters
 ) {
@@ -29,8 +28,6 @@ class VirtualHostRequestHandler @Inject() (
     case "www.oji.cn" => princegroupRouter.routes.lift(rewriteAssets("princegroup", request))
     case "oji.example.com" => princegroupRouter.routes.lift(rewriteAssets("princegroup", request))
     case "princegroup.example.com" => princegroupRouter.routes.lift(rewriteAssets("princegroup", request))
-    case "web.princegroup.cn" => fiveramRouter.routes.lift(rewriteAssets("fiveramSite", request))
-    case "fiveram.example.com" => fiveramRouter.routes.lift(rewriteAssets("fiveramSite", request))
     case _ => adminRouter.routes.lift(rewriteAssets("admin", request))
   }
 
